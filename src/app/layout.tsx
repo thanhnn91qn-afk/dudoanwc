@@ -40,22 +40,35 @@ export default function RootLayout({
           Twemoji scan DOM và thay thế mọi emoji (kể cả sinh ra sau) thành <img>.
         */}
         <Script
+          id="twemoji-loader"
           src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"
           strategy="afterInteractive"
+          onLoad={() => {
+            // Twemoji được attach vào window ngay khi load xong
+            const w = window as unknown as {
+              twemoji?: {
+                parse: (root: Element, opts: object) => void;
+              };
+            };
+            if (!w.twemoji) return;
+            const opts = {
+              base: "https://cdn.jsdelivr.net/npm/twemoji@14.0.2/assets/",
+              ext: ".svg",
+              className: "twemoji",
+            };
+            const parse = () => {
+              try {
+                w.twemoji!.parse(document.body, opts);
+              } catch {
+                /* ignore */
+              }
+            };
+            parse();
+            // Re-parse khi DOM thay đổi (Next.js SPA route + Supabase realtime)
+            const obs = new MutationObserver(() => parse());
+            obs.observe(document.body, { childList: true, subtree: true });
+          }}
         />
-        <Script id="twemoji-init" strategy="afterInteractive">
-          {`
-            (function() {
-              if (typeof twemoji === 'undefined') return;
-              twemoji_opts = { folder: 'svg', ext: '.svg', className: 'twemoji' };
-              function parse() { try { twemoji.parse(document.body); } catch (e) {} }
-              parse();
-              // Re-parse khi DOM thay đổi (Next.js SPA + Supabase realtime)
-              var obs = new MutationObserver(function() { parse(); });
-              obs.observe(document.body, { childList: true, subtree: true });
-            })();
-          `}
-        </Script>
       </body>
     </html>
   );
