@@ -40,18 +40,17 @@ export default function RootLayout({
           Twemoji scan DOM và thay thế mọi emoji (kể cả sinh ra sau) thành <img>.
         */}
         <Script
-          src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"
+          src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/dist/twemoji.min.js"
           strategy="afterInteractive"
         />
         <Script id="twemoji-init" strategy="afterInteractive">
           {`
             (function() {
               if (typeof twemoji === 'undefined') return;
-              // Parse mọi emoji kể cả trong title/alt
-              twemoji_opts = { folder: 'svg', ext: '.svg', className: 'twemoji', size: 'svg' };
+              twemoji_opts = { folder: 'svg', ext: '.svg', className: 'twemoji' };
               function parse() { try { twemoji.parse(document.body); } catch (e) {} }
               parse();
-              // Re-parse khi DOM thay đổi (Next.js SPA route + realtime update)
+              // Re-parse khi DOM thay đổi (Next.js SPA + Supabase realtime)
               var obs = new MutationObserver(function() { parse(); });
               obs.observe(document.body, { childList: true, subtree: true });
             })();
