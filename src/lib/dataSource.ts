@@ -324,11 +324,19 @@ export async function resetAllRemote(actorName: string | null): Promise<void> {
 export interface DeletePlayerResult {
   playerName: string;
   predictionsDeleted: number;
+  /** true nếu sau khi xoá, row thật sự biến mất khỏi DB (false = bị RLS chặn) */
+  verified: boolean;
+  /** Lỗi nếu có, để hiển thị lên UI */
+  warning: string | null;
 }
 
 /**
  * Xoá 1 người chơi khỏi server (xoá cả dự đoán của họ, log audit).
  * Nếu người chơi đang là current player trong trình duyệt này thì đăng xuất luôn.
+ *
+ * Sau khi xoá, hàm re-read lại DB để xác nhận row đã biến mất thật. Nếu RLS
+ * chặn DELETE ngầm, Supabase trả `error: null` + `data: []` nên phải verify
+ * mới biết — nếu không, UI sẽ tưởng xoá thành công nhưng DB vẫn còn.
  */
 export async function deletePlayerRemote(
   actorName: string | null,
@@ -355,32 +363,130 @@ export async function deletePlayerRemote(
   const predictionsDeleted = predsCount ?? 0;
 
   // 3. Xoá predictions trước (FK không có cascade để chắc chắn)
-  const { error: predsErr } = await supabase
+  const { data: deletedPreds, error: predsErr } = await supabase
     .from("wc_predictions")
     .delete()
-    .eq("player_id", playerId);
+    .eq("player_id", playerId)
+    .select("player_id, match_id");
   if (predsErr) throw predsErr;
+  // eslint-disable-next-line no-console
+  console.log(
+    `[deletePlayer] xoá predictions: yêu cầu ${predictionsDeleted}, server trả ${deletedPreds?.length ?? 0}`,
+  );
 
   // 4. Xoá player
-  const { error: playerErr } = await supabase
+  const { data: deletedPlayers, error: playerErr } = await supabase
     .from("wc_players")
     .delete()
-    .eq("id", playerId);
+    .eq("id", playerId)
+    .select("id");
   if (playerErr) throw playerErr;
+  // eslint-disable-next-line no-console
+  console.log(
+    `[deletePlayer] xoá player ${playerId}: server trả ${deletedPlayers?.length ?? 0} row`,
+  );
 
-  // 5. Nếu là current player trong trình duyệt này thì logout
+  // 5. Verify: re-read lại DB để chắc chắn row thật sự biến mất.
+  //    Nếu RLS chặn DELETE ngầm, Supabase trả deletedPlayers = [] mà không
+  //    báo lỗi — bước này bắt được trường hợp đó.
+  const { data: stillThere, error: verifyErr } = await supabase
+    .from("wc_players")
+    .select("id")
+    .eq("id", playerId)
+    .maybeSingle();
+  if (verifyErr) throw verifyErr;
+
+  const verified = stillThere === null;
+  const warning = verified
+    ? null
+    : `Server báo xoá thành công nhưng vẫn thấy row trong DB. ` +
+      `Khả năng cao do RLS policy chỉ cho phép SELECT/INSERT/UPDATE mà chặn DELETE ` +
+      `(xem mục "RLS" trong README để sửa).`;
+
+  if (!verified) {
+    // eslint-disable-next-line no-console
+    console.warn(`[deletePlayer] ❌ Verify FAILED: row vẫn còn`, stillThere);
+  } else {
+    // eslint-disable-next-line no-console
+    console.log(`[deletePlayer] ✓ Verify OK: row đã biến mất`);
+  }
+
+  // 6. Nếu là current player trong trình duyệt này thì logout
   if (getLocalCurrentPlayerId() === playerId) {
     setLocalCurrentPlayerId(null);
   }
 
-  // 6. Log audit
+  // 7. Log audit
   void logAudit(actorName, "player.delete", "player", playerId, {
     playerId,
     playerName,
     predictionsDeleted,
+    verified,
   });
 
-  return { playerName, predictionsDeleted };
+  return { playerName, predictionsDeleted, verified, warning };
+}
+
+/**
+ * Chẩn đoán RLS: thử select/insert/update/delete trên 1 bảng rồi trả về
+ * kết quả từng thao tác. Dùng để debug khi nghi ngờ policy chặn quyền.
+ */
+export async function diagnoseRLS(): Promise<{
+  players: { select: boolean; insert: boolean; delete: boolean; error: string };
+  predictions: { select: boolean; insert: boolean; delete: boolean; error: string };
+}> {
+  if (!supabase) {
+    return {
+      players: { select: false, insert: false, delete: false, error: "no supabase" },
+      predictions: { select: false, insert: false, delete: false, error: "no supabase" },
+    };
+  }
+  // 1) SELECT
+  const pSel = await supabase.from("wc_players").select("id").limit(1);
+  const dSel = await supabase.from("wc_predictions").select("player_id").limit(1);
+
+  // 2) INSERT thử 1 row tạm với id "__diag__" rồi xoá ngay
+  const testId = `__diag_${Date.now()}`;
+  const pIns = await supabase
+    .from("wc_players")
+    .insert({ id: testId, name: `__diag_${testId}` })
+    .select("id");
+  const pDel = await supabase.from("wc_players").delete().eq("id", testId).select("id");
+
+  const dIns = await supabase
+    .from("wc_predictions")
+    .insert({ player_id: testId, match_id: "__diag__", pick: "home" })
+    .select("player_id, match_id");
+  const dDel = await supabase
+    .from("wc_predictions")
+    .delete()
+    .eq("player_id", testId)
+    .select("player_id, match_id");
+
+  return {
+    players: {
+      select: !pSel.error && Array.isArray(pSel.data),
+      insert: !pIns.error && Array.isArray(pIns.data) && pIns.data.length > 0,
+      delete: !pDel.error && Array.isArray(pDel.data) && pDel.data.length > 0,
+      error:
+        (pSel.error?.message ?? "") +
+        " | insert: " +
+        (pIns.error?.message ?? "") +
+        " | delete: " +
+        (pDel.error?.message ?? ""),
+    },
+    predictions: {
+      select: !dSel.error && Array.isArray(dSel.data),
+      insert: !dIns.error && Array.isArray(dIns.data) && dIns.data.length > 0,
+      delete: !dDel.error && Array.isArray(dDel.data) && dDel.data.length > 0,
+      error:
+        (dSel.error?.message ?? "") +
+        " | insert: " +
+        (dIns.error?.message ?? "") +
+        " | delete: " +
+        (dDel.error?.message ?? ""),
+    },
+  };
 }
 
 export function subscribeRealtime(

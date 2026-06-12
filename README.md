@@ -146,6 +146,32 @@ create policy "anon insert wc_audit_log" on public.wc_audit_log
 
 > ⚠️ Nếu muốn **khoá chặt hơn** (vd ai cũng đọc được nhưng chỉ chủ trận mới sửa được), bạn cần tích hợp Supabase Auth và thay policy tương ứng. Mặc định ở trên là "ai cũng đoán được, ai cũng nhập kết quả được" — phù hợp với bản chất "chơi cùng bạn bè" của app.
 
+### ❓ Xoá người chơi báo OK nhưng DB vẫn còn?
+
+Supabase với RLS có 1 cạm bẫy: khi policy chỉ cho `SELECT` / `INSERT` mà **không có DELETE**, câu `DELETE` sẽ **chạy im lặng thành công** (trả `data: []`, không lỗi) nhưng row vẫn còn. App có sẵn nút **🩺 Test RLS** trong tab *Người chơi* (chế độ Admin) để thử `SELECT/INSERT/DELETE` trên bảng thật — nếu thấy ❌ ở cột DELETE thì chạy đoạn SQL dưới để **xoá policy cũ rồi tạo lại bằng `for all`**:
+
+```sql
+-- Xoá mọi policy cũ (idempotent) rồi tạo lại với FOR ALL
+drop policy if exists "anon all wc_players"     on public.wc_players;
+drop policy if exists "anon all wc_predictions" on public.wc_predictions;
+drop policy if exists "anon all wc_results"     on public.wc_results;
+drop policy if exists "anon read wc_audit_log"  on public.wc_audit_log;
+drop policy if exists "anon insert wc_audit_log" on public.wc_audit_log;
+
+create policy "anon all wc_players" on public.wc_players
+  for all to anon using (true) with check (true);
+create policy "anon all wc_predictions" on public.wc_predictions
+  for all to anon using (true) with check (true);
+create policy "anon all wc_results" on public.wc_results
+  for all to anon using (true) with check (true);
+create policy "anon read wc_audit_log" on public.wc_audit_log
+  for select to anon using (true);
+create policy "anon insert wc_audit_log" on public.wc_audit_log
+  for insert to anon with check (true);
+```
+
+Sau khi chạy xong, bấm **🩺 Test RLS** trong app — cả 3 cột (SELECT/INSERT/DELETE) phải hiện ✅, rồi thử xoá 1 player. Nếu bạn tự tạo policy `for select` / `for insert` riêng trước đó thì phải bổ sung thêm `for delete` nữa (`for all` là gộp của 4 thứ: SELECT/INSERT/UPDATE/DELETE).
+
 ---
 
 ## 🌐 Deploy lên Vercel

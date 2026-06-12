@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import type { AppData, Player } from "@/lib/types";
 import { scoreboard } from "@/lib/scoring";
-import { deletePlayerRemote } from "@/lib/dataSource";
+import { deletePlayerRemote, diagnoseRLS } from "@/lib/dataSource";
 import { IconCheck, IconX, IconUsers, IconTrash } from "./Icons";
 
 interface Props {
@@ -23,6 +23,8 @@ export default function PlayerManager({
   const [busyId, setBusyId] = useState<string | null>(null);
   const [confirmId, setConfirmId] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
+  const [diagnosing, setDiagnosing] = useState(false);
+  const [diagResult, setDiagResult] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<
     { type: "ok" | "err"; msg: string } | null
   >(null);
@@ -67,6 +69,39 @@ export default function PlayerManager({
     }
   };
 
+  const handleDiagnose = async () => {
+    setDiagnosing(true);
+    setDiagResult(null);
+    try {
+      const r = await diagnoseRLS();
+      const lines: string[] = [];
+      const ok = (b: boolean) => (b ? "✅" : "❌");
+      lines.push(`wc_players:      SELECT ${ok(r.players.select)}  INSERT ${ok(r.players.insert)}  DELETE ${ok(r.players.delete)}`);
+      lines.push(`wc_predictions:  SELECT ${ok(r.predictions.select)}  INSERT ${ok(r.predictions.insert)}  DELETE ${ok(r.predictions.delete)}`);
+      if (r.players.error || r.predictions.error) {
+        lines.push("");
+        lines.push("Chi tiết lỗi (nếu có):");
+        if (r.players.error.trim() && r.players.error.trim() !== "| insert:  | delete: ") {
+          lines.push(`wc_players: ${r.players.error}`);
+        }
+        if (r.predictions.error.trim() && r.predictions.error.trim() !== "| insert:  | delete: ") {
+          lines.push(`wc_predictions: ${r.predictions.error}`);
+        }
+      }
+      lines.push("");
+      if (!r.players.delete || !r.predictions.delete) {
+        lines.push("⚠️ Có quyền bị ❌. Mở README.md → mục 'RLS' để chạy policy DELETE.");
+      } else {
+        lines.push("🎉 Tất cả quyền OK — DELETE nên hoạt động. Nếu vẫn lỗi, xem Console (F12).");
+      }
+      setDiagResult(lines.join("\n"));
+    } catch (e) {
+      setDiagResult(`Lỗi: ${(e as Error).message ?? "không rõ"}`);
+    } finally {
+      setDiagnosing(false);
+    }
+  };
+
   const handleDelete = async (player: Player) => {
     if (player.id === currentPlayerId) {
       setFeedback({
@@ -89,14 +124,27 @@ export default function PlayerManager({
     }
     setBusyId(player.id);
     try {
-      const { predictionsDeleted } = await deletePlayerRemote(actorName, player.id);
+      const { predictionsDeleted, verified, warning } = await deletePlayerRemote(
+        actorName,
+        player.id,
+      );
       // Luôn refetch từ server thay vì filter local — vì realtime đôi lúc
       // không bắn đủ nhanh với DELETE, dễ khiến danh sách vẫn hiển thị cũ.
       await onRefresh();
-      setFeedback({
-        type: "ok",
-        msg: `Đã xoá "${player.name}"${predictionsDeleted > 0 ? ` và ${predictionsDeleted} dự đoán` : ""}.`,
-      });
+      if (verified) {
+        setFeedback({
+          type: "ok",
+          msg: `Đã xoá "${player.name}"${predictionsDeleted > 0 ? ` và ${predictionsDeleted} dự đoán` : ""}.`,
+        });
+      } else {
+        setFeedback({
+          type: "err",
+          msg:
+            `Server báo xoá "${player.name}" thành công nhưng vẫn thấy row trong DB — ` +
+            `RLS policy đang chặn DELETE. ` +
+            (warning ?? ""),
+        });
+      }
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error("[player-manager] delete failed", e);
@@ -113,7 +161,15 @@ export default function PlayerManager({
   if (data.players.length === 0) {
     return (
       <div className="space-y-3">
-        <div className="flex justify-end">
+        <div className="flex flex-wrap justify-end gap-2">
+          <button
+            onClick={handleDiagnose}
+            disabled={diagnosing}
+            title="Thử SELECT/INSERT/DELETE trên bảng players + predictions để xem RLS có chặn không"
+            className="rounded-lg border border-[var(--border-medium)] bg-[var(--bg-elevated)] px-3 py-1.5 text-[11px] font-semibold text-[var(--text-secondary)] hover:bg-[var(--bg-soft)] disabled:opacity-50"
+          >
+            {diagnosing ? "Đang kiểm tra…" : "🩺 Test RLS"}
+          </button>
           <button
             onClick={handleRefresh}
             disabled={refreshing}
@@ -122,6 +178,11 @@ export default function PlayerManager({
             {refreshing ? "Đang đồng bộ…" : "↻ Làm mới từ server"}
           </button>
         </div>
+        {diagResult && (
+          <pre className="card whitespace-pre-wrap p-3 font-mono text-[11px] text-[var(--text-primary)]">
+{diagResult}
+          </pre>
+        )}
         <div className="card p-8 text-center text-sm text-[var(--text-muted)]">
           <IconUsers size={28} className="mx-auto mb-3 opacity-40" />
           Chưa có người chơi nào trên server.
@@ -142,7 +203,7 @@ export default function PlayerManager({
               Xoá những tài khoản bạn không muốn. Sẽ xoá luôn dự đoán của họ và ghi log.
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <input
               type="text"
               value={filter}
@@ -153,6 +214,14 @@ export default function PlayerManager({
             <div className="rounded-lg bg-[var(--bg-soft)] px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">
               {filtered.length}/{data.players.length}
             </div>
+            <button
+              onClick={handleDiagnose}
+              disabled={diagnosing}
+              title="Thử SELECT/INSERT/DELETE trên bảng players + predictions để xem RLS có chặn không"
+              className="rounded-lg border border-[var(--border-medium)] bg-[var(--bg-elevated)] px-3 py-1.5 text-[11px] font-semibold text-[var(--text-secondary)] hover:bg-[var(--bg-soft)] disabled:opacity-50"
+            >
+              {diagnosing ? "Đang kiểm tra…" : "🩺 Test RLS"}
+            </button>
             <button
               onClick={handleRefresh}
               disabled={refreshing}
@@ -175,6 +244,11 @@ export default function PlayerManager({
             {feedback.type === "ok" ? <IconCheck size={12} /> : <IconX size={12} />}
             {feedback.msg}
           </div>
+        )}
+        {diagResult && (
+          <pre className="mt-3 whitespace-pre-wrap rounded-xl border border-[var(--border-soft)] bg-[var(--bg-soft)] p-3 font-mono text-[11px] text-[var(--text-primary)]">
+{diagResult}
+          </pre>
         )}
       </div>
 
