@@ -1,0 +1,1765 @@
+{
+  "tournament": "FIFA World Cup 2026",
+  "year": 2026,
+  "hosts": [
+    "USA",
+    "Canada",
+    "Mexico"
+  ],
+  "dates": {
+    "start": "2026-06-11",
+    "end": "2026-07-19"
+  },
+  "timezone": "Asia/Ho_Chi_Minh (UTC+7)",
+  "format": {
+    "teamsTotal": 48,
+    "groups": 12,
+    "teamsPerGroup": 4,
+    "matchesPerGroup": 6,
+    "advanceRules": "Top 2 mỗi bảng + 8 đội hạng 3 tốt nhất → Vòng 32"
+  },
+  "teams": {
+    "Mexico": {
+      "flag": "🇲🇽",
+      "confederation": "CONCACAF",
+      "group": "A"
+    },
+    "South Africa": {
+      "flag": "🇿🇦",
+      "confederation": "CAF",
+      "group": "A"
+    },
+    "Korea Republic": {
+      "flag": "🇰🇷",
+      "confederation": "AFC",
+      "group": "A"
+    },
+    "Czechia": {
+      "flag": "🇨🇿",
+      "confederation": "UEFA",
+      "group": "A"
+    },
+    "Canada": {
+      "flag": "🇨🇦",
+      "confederation": "CONCACAF",
+      "group": "B"
+    },
+    "Bosnia & Herzegovina": {
+      "flag": "🇧🇦",
+      "confederation": "UEFA",
+      "group": "B"
+    },
+    "Qatar": {
+      "flag": "🇶🇦",
+      "confederation": "AFC",
+      "group": "B"
+    },
+    "Switzerland": {
+      "flag": "🇨🇭",
+      "confederation": "UEFA",
+      "group": "B"
+    },
+    "Brazil": {
+      "flag": "🇧🇷",
+      "confederation": "CONMEBOL",
+      "group": "C"
+    },
+    "Morocco": {
+      "flag": "🇲🇦",
+      "confederation": "CAF",
+      "group": "C"
+    },
+    "Haiti": {
+      "flag": "🇭🇹",
+      "confederation": "CONCACAF",
+      "group": "C"
+    },
+    "Scotland": {
+      "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+      "confederation": "UEFA",
+      "group": "C"
+    },
+    "United States": {
+      "flag": "🇺🇸",
+      "confederation": "CONCACAF",
+      "group": "D"
+    },
+    "Paraguay": {
+      "flag": "🇵🇾",
+      "confederation": "CONMEBOL",
+      "group": "D"
+    },
+    "Australia": {
+      "flag": "🇦🇺",
+      "confederation": "AFC",
+      "group": "D"
+    },
+    "Türkiye": {
+      "flag": "🇹🇷",
+      "confederation": "UEFA",
+      "group": "D"
+    },
+    "Germany": {
+      "flag": "🇩🇪",
+      "confederation": "UEFA",
+      "group": "E"
+    },
+    "Curaçao": {
+      "flag": "🇨🇼",
+      "confederation": "CONCACAF",
+      "group": "E"
+    },
+    "Ivory Coast": {
+      "flag": "🇨🇮",
+      "confederation": "CAF",
+      "group": "E"
+    },
+    "Ecuador": {
+      "flag": "🇪🇨",
+      "confederation": "CONMEBOL",
+      "group": "E"
+    },
+    "Netherlands": {
+      "flag": "🇳🇱",
+      "confederation": "UEFA",
+      "group": "F"
+    },
+    "Japan": {
+      "flag": "🇯🇵",
+      "confederation": "AFC",
+      "group": "F"
+    },
+    "Sweden": {
+      "flag": "🇸🇪",
+      "confederation": "UEFA",
+      "group": "F"
+    },
+    "Tunisia": {
+      "flag": "🇹🇳",
+      "confederation": "CAF",
+      "group": "F"
+    },
+    "Belgium": {
+      "flag": "🇧🇪",
+      "confederation": "UEFA",
+      "group": "G"
+    },
+    "Egypt": {
+      "flag": "🇪🇬",
+      "confederation": "CAF",
+      "group": "G"
+    },
+    "Iran": {
+      "flag": "🇮🇷",
+      "confederation": "AFC",
+      "group": "G"
+    },
+    "New Zealand": {
+      "flag": "🇳🇿",
+      "confederation": "OFC",
+      "group": "G"
+    },
+    "Spain": {
+      "flag": "🇪🇸",
+      "confederation": "UEFA",
+      "group": "H"
+    },
+    "Cape Verde": {
+      "flag": "🇨🇻",
+      "confederation": "CAF",
+      "group": "H"
+    },
+    "Saudi Arabia": {
+      "flag": "🇸🇦",
+      "confederation": "AFC",
+      "group": "H"
+    },
+    "Uruguay": {
+      "flag": "🇺🇾",
+      "confederation": "CONMEBOL",
+      "group": "H"
+    },
+    "France": {
+      "flag": "🇫🇷",
+      "confederation": "UEFA",
+      "group": "I"
+    },
+    "Senegal": {
+      "flag": "🇸🇳",
+      "confederation": "CAF",
+      "group": "I"
+    },
+    "Iraq": {
+      "flag": "🇮🇶",
+      "confederation": "AFC",
+      "group": "I"
+    },
+    "Norway": {
+      "flag": "🇳🇴",
+      "confederation": "UEFA",
+      "group": "I"
+    },
+    "Argentina": {
+      "flag": "🇦🇷",
+      "confederation": "CONMEBOL",
+      "group": "J"
+    },
+    "Algeria": {
+      "flag": "🇩🇿",
+      "confederation": "CAF",
+      "group": "J"
+    },
+    "Austria": {
+      "flag": "🇦🇹",
+      "confederation": "UEFA",
+      "group": "J"
+    },
+    "Jordan": {
+      "flag": "🇯🇴",
+      "confederation": "AFC",
+      "group": "J"
+    },
+    "Portugal": {
+      "flag": "🇵🇹",
+      "confederation": "UEFA",
+      "group": "K"
+    },
+    "DR Congo": {
+      "flag": "🇨🇩",
+      "confederation": "CAF",
+      "group": "K"
+    },
+    "Uzbekistan": {
+      "flag": "🇺🇿",
+      "confederation": "AFC",
+      "group": "K"
+    },
+    "Colombia": {
+      "flag": "🇨🇴",
+      "confederation": "CONMEBOL",
+      "group": "K"
+    },
+    "England": {
+      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "confederation": "UEFA",
+      "group": "L"
+    },
+    "Croatia": {
+      "flag": "🇭🇷",
+      "confederation": "UEFA",
+      "group": "L"
+    },
+    "Ghana": {
+      "flag": "🇬🇭",
+      "confederation": "CAF",
+      "group": "L"
+    },
+    "Panama": {
+      "flag": "🇵🇦",
+      "confederation": "CONCACAF",
+      "group": "L"
+    }
+  },
+  "groups": [
+    {
+      "id": "A",
+      "teams": [
+        "Mexico",
+        "South Africa",
+        "Korea Republic",
+        "Czechia"
+      ],
+      "matches": [
+        {
+          "id": "A1",
+          "matchday": 1,
+          "kickoffVN": "2026-06-12T02:00:00+07:00",
+          "home": "Mexico",
+          "away": "South Africa",
+          "venue": "Estadio Azteca",
+          "city": "Mexico City, Mexico",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "A2",
+          "matchday": 1,
+          "kickoffVN": "2026-06-12T09:00:00+07:00",
+          "home": "Korea Republic",
+          "away": "Czechia",
+          "venue": "Estadio Akron",
+          "city": "Guadalajara, Mexico",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "A3",
+          "matchday": 2,
+          "kickoffVN": "2026-06-18T23:00:00+07:00",
+          "home": "Czechia",
+          "away": "South Africa",
+          "venue": "Mercedes-Benz Stadium",
+          "city": "Atlanta, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "A4",
+          "matchday": 2,
+          "kickoffVN": "2026-06-19T08:00:00+07:00",
+          "home": "Mexico",
+          "away": "Korea Republic",
+          "venue": "Estadio Akron",
+          "city": "Guadalajara, Mexico",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "A5",
+          "matchday": 3,
+          "kickoffVN": "2026-06-25T08:00:00+07:00",
+          "home": "South Africa",
+          "away": "Korea Republic",
+          "venue": "Estadio BBVA",
+          "city": "Monterrey, Mexico",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "A6",
+          "matchday": 3,
+          "kickoffVN": "2026-06-25T08:00:00+07:00",
+          "home": "Czechia",
+          "away": "Mexico",
+          "venue": "Estadio Azteca",
+          "city": "Mexico City, Mexico",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        }
+      ],
+      "standings": {
+        "Mexico": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "South Africa": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Korea Republic": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Czechia": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        }
+      }
+    },
+    {
+      "id": "B",
+      "teams": [
+        "Canada",
+        "Bosnia & Herzegovina",
+        "Qatar",
+        "Switzerland"
+      ],
+      "matches": [
+        {
+          "id": "B1",
+          "matchday": 1,
+          "kickoffVN": "2026-06-13T02:00:00+07:00",
+          "home": "Canada",
+          "away": "Bosnia & Herzegovina",
+          "venue": "BMO Field",
+          "city": "Toronto, Canada",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "B2",
+          "matchday": 1,
+          "kickoffVN": "2026-06-14T02:00:00+07:00",
+          "home": "Qatar",
+          "away": "Switzerland",
+          "venue": "Levi's Stadium",
+          "city": "Santa Clara, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "B3",
+          "matchday": 2,
+          "kickoffVN": "2026-06-19T02:00:00+07:00",
+          "home": "Switzerland",
+          "away": "Bosnia & Herzegovina",
+          "venue": "SoFi Stadium",
+          "city": "Inglewood, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "B4",
+          "matchday": 2,
+          "kickoffVN": "2026-06-19T05:00:00+07:00",
+          "home": "Canada",
+          "away": "Qatar",
+          "venue": "BC Place",
+          "city": "Vancouver, Canada",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "B5",
+          "matchday": 3,
+          "kickoffVN": "2026-06-25T02:00:00+07:00",
+          "home": "Switzerland",
+          "away": "Canada",
+          "venue": "BC Place",
+          "city": "Vancouver, Canada",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "B6",
+          "matchday": 3,
+          "kickoffVN": "2026-06-25T02:00:00+07:00",
+          "home": "Bosnia & Herzegovina",
+          "away": "Qatar",
+          "venue": "Lumen Field",
+          "city": "Seattle, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        }
+      ],
+      "standings": {
+        "Canada": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Bosnia & Herzegovina": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Qatar": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Switzerland": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        }
+      }
+    },
+    {
+      "id": "C",
+      "teams": [
+        "Brazil",
+        "Morocco",
+        "Haiti",
+        "Scotland"
+      ],
+      "matches": [
+        {
+          "id": "C1",
+          "matchday": 1,
+          "kickoffVN": "2026-06-14T05:00:00+07:00",
+          "home": "Brazil",
+          "away": "Morocco",
+          "venue": "MetLife Stadium",
+          "city": "East Rutherford, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "C2",
+          "matchday": 1,
+          "kickoffVN": "2026-06-14T08:00:00+07:00",
+          "home": "Haiti",
+          "away": "Scotland",
+          "venue": "Gillette Stadium",
+          "city": "Foxboro, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "C3",
+          "matchday": 2,
+          "kickoffVN": "2026-06-20T05:00:00+07:00",
+          "home": "Scotland",
+          "away": "Morocco",
+          "venue": "Gillette Stadium",
+          "city": "Foxboro, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "C4",
+          "matchday": 2,
+          "kickoffVN": "2026-06-20T07:30:00+07:00",
+          "home": "Brazil",
+          "away": "Haiti",
+          "venue": "Lincoln Financial Field",
+          "city": "Philadelphia, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "C5",
+          "matchday": 3,
+          "kickoffVN": "2026-06-25T05:00:00+07:00",
+          "home": "Scotland",
+          "away": "Brazil",
+          "venue": "Hard Rock Stadium",
+          "city": "Miami, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "C6",
+          "matchday": 3,
+          "kickoffVN": "2026-06-25T05:00:00+07:00",
+          "home": "Morocco",
+          "away": "Haiti",
+          "venue": "Mercedes-Benz Stadium",
+          "city": "Atlanta, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        }
+      ],
+      "standings": {
+        "Brazil": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Morocco": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Haiti": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Scotland": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        }
+      }
+    },
+    {
+      "id": "D",
+      "teams": [
+        "United States",
+        "Paraguay",
+        "Australia",
+        "Türkiye"
+      ],
+      "matches": [
+        {
+          "id": "D1",
+          "matchday": 1,
+          "kickoffVN": "2026-06-13T08:00:00+07:00",
+          "home": "United States",
+          "away": "Paraguay",
+          "venue": "SoFi Stadium",
+          "city": "Inglewood, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "D2",
+          "matchday": 1,
+          "kickoffVN": "2026-06-14T23:00:00+07:00",
+          "home": "Australia",
+          "away": "Türkiye",
+          "venue": "BC Place",
+          "city": "Vancouver, Canada",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "D3",
+          "matchday": 2,
+          "kickoffVN": "2026-06-20T02:00:00+07:00",
+          "home": "United States",
+          "away": "Australia",
+          "venue": "Lumen Field",
+          "city": "Seattle, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "D4",
+          "matchday": 2,
+          "kickoffVN": "2026-06-20T10:00:00+07:00",
+          "home": "Türkiye",
+          "away": "Paraguay",
+          "venue": "Levi's Stadium",
+          "city": "Santa Clara, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "D5",
+          "matchday": 3,
+          "kickoffVN": "2026-06-26T09:00:00+07:00",
+          "home": "Türkiye",
+          "away": "United States",
+          "venue": "SoFi Stadium",
+          "city": "Inglewood, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "D6",
+          "matchday": 3,
+          "kickoffVN": "2026-06-26T09:00:00+07:00",
+          "home": "Paraguay",
+          "away": "Australia",
+          "venue": "Levi's Stadium",
+          "city": "Santa Clara, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        }
+      ],
+      "standings": {
+        "United States": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Paraguay": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Australia": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Türkiye": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        }
+      }
+    },
+    {
+      "id": "E",
+      "teams": [
+        "Germany",
+        "Curaçao",
+        "Ivory Coast",
+        "Ecuador"
+      ],
+      "matches": [
+        {
+          "id": "E1",
+          "matchday": 1,
+          "kickoffVN": "2026-06-15T00:00:00+07:00",
+          "home": "Germany",
+          "away": "Curaçao",
+          "venue": "NRG Stadium",
+          "city": "Houston, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "E2",
+          "matchday": 1,
+          "kickoffVN": "2026-06-15T06:00:00+07:00",
+          "home": "Ivory Coast",
+          "away": "Ecuador",
+          "venue": "Lincoln Financial Field",
+          "city": "Philadelphia, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "E3",
+          "matchday": 2,
+          "kickoffVN": "2026-06-21T03:00:00+07:00",
+          "home": "Germany",
+          "away": "Ivory Coast",
+          "venue": "BMO Field",
+          "city": "Toronto, Canada",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "E4",
+          "matchday": 2,
+          "kickoffVN": "2026-06-21T07:00:00+07:00",
+          "home": "Ecuador",
+          "away": "Curaçao",
+          "venue": "Arrowhead Stadium",
+          "city": "Kansas City, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "E5",
+          "matchday": 3,
+          "kickoffVN": "2026-06-26T03:00:00+07:00",
+          "home": "Ecuador",
+          "away": "Germany",
+          "venue": "MetLife Stadium",
+          "city": "East Rutherford, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "E6",
+          "matchday": 3,
+          "kickoffVN": "2026-06-26T03:00:00+07:00",
+          "home": "Curaçao",
+          "away": "Ivory Coast",
+          "venue": "Lincoln Financial Field",
+          "city": "Philadelphia, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        }
+      ],
+      "standings": {
+        "Germany": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Curaçao": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Ivory Coast": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Ecuador": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        }
+      }
+    },
+    {
+      "id": "F",
+      "teams": [
+        "Netherlands",
+        "Japan",
+        "Sweden",
+        "Tunisia"
+      ],
+      "matches": [
+        {
+          "id": "F1",
+          "matchday": 1,
+          "kickoffVN": "2026-06-15T03:00:00+07:00",
+          "home": "Netherlands",
+          "away": "Japan",
+          "venue": "AT&T Stadium",
+          "city": "Arlington, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "F2",
+          "matchday": 1,
+          "kickoffVN": "2026-06-15T09:00:00+07:00",
+          "home": "Sweden",
+          "away": "Tunisia",
+          "venue": "Estadio BBVA",
+          "city": "Monterrey, Mexico",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "F3",
+          "matchday": 2,
+          "kickoffVN": "2026-06-21T00:00:00+07:00",
+          "home": "Netherlands",
+          "away": "Sweden",
+          "venue": "NRG Stadium",
+          "city": "Houston, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "F4",
+          "matchday": 2,
+          "kickoffVN": "2026-06-21T11:00:00+07:00",
+          "home": "Tunisia",
+          "away": "Japan",
+          "venue": "Estadio BBVA",
+          "city": "Monterrey, Mexico",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "F5",
+          "matchday": 3,
+          "kickoffVN": "2026-06-26T06:00:00+07:00",
+          "home": "Tunisia",
+          "away": "Netherlands",
+          "venue": "Arrowhead Stadium",
+          "city": "Kansas City, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "F6",
+          "matchday": 3,
+          "kickoffVN": "2026-06-26T06:00:00+07:00",
+          "home": "Japan",
+          "away": "Sweden",
+          "venue": "AT&T Stadium",
+          "city": "Arlington, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        }
+      ],
+      "standings": {
+        "Netherlands": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Japan": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Sweden": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Tunisia": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        }
+      }
+    },
+    {
+      "id": "G",
+      "teams": [
+        "Belgium",
+        "Egypt",
+        "Iran",
+        "New Zealand"
+      ],
+      "matches": [
+        {
+          "id": "G1",
+          "matchday": 1,
+          "kickoffVN": "2026-06-16T02:00:00+07:00",
+          "home": "Belgium",
+          "away": "Egypt",
+          "venue": "Lumen Field",
+          "city": "Seattle, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "G2",
+          "matchday": 1,
+          "kickoffVN": "2026-06-16T08:00:00+07:00",
+          "home": "Iran",
+          "away": "New Zealand",
+          "venue": "SoFi Stadium",
+          "city": "Inglewood, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "G3",
+          "matchday": 2,
+          "kickoffVN": "2026-06-22T02:00:00+07:00",
+          "home": "Belgium",
+          "away": "Iran",
+          "venue": "SoFi Stadium",
+          "city": "Inglewood, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "G4",
+          "matchday": 2,
+          "kickoffVN": "2026-06-22T08:00:00+07:00",
+          "home": "New Zealand",
+          "away": "Egypt",
+          "venue": "BC Place",
+          "city": "Vancouver, Canada",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "G5",
+          "matchday": 3,
+          "kickoffVN": "2026-06-27T10:00:00+07:00",
+          "home": "New Zealand",
+          "away": "Belgium",
+          "venue": "BC Place",
+          "city": "Vancouver, Canada",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "G6",
+          "matchday": 3,
+          "kickoffVN": "2026-06-27T10:00:00+07:00",
+          "home": "Egypt",
+          "away": "Iran",
+          "venue": "Lumen Field",
+          "city": "Seattle, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        }
+      ],
+      "standings": {
+        "Belgium": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Egypt": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Iran": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "New Zealand": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        }
+      }
+    },
+    {
+      "id": "H",
+      "teams": [
+        "Spain",
+        "Cape Verde",
+        "Saudi Arabia",
+        "Uruguay"
+      ],
+      "matches": [
+        {
+          "id": "H1",
+          "matchday": 1,
+          "kickoffVN": "2026-06-15T23:00:00+07:00",
+          "home": "Spain",
+          "away": "Cape Verde",
+          "venue": "Mercedes-Benz Stadium",
+          "city": "Atlanta, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "H2",
+          "matchday": 1,
+          "kickoffVN": "2026-06-16T05:00:00+07:00",
+          "home": "Saudi Arabia",
+          "away": "Uruguay",
+          "venue": "Hard Rock Stadium",
+          "city": "Miami, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "H3",
+          "matchday": 2,
+          "kickoffVN": "2026-06-21T23:00:00+07:00",
+          "home": "Spain",
+          "away": "Saudi Arabia",
+          "venue": "Mercedes-Benz Stadium",
+          "city": "Atlanta, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "H4",
+          "matchday": 2,
+          "kickoffVN": "2026-06-22T05:00:00+07:00",
+          "home": "Uruguay",
+          "away": "Cape Verde",
+          "venue": "Hard Rock Stadium",
+          "city": "Miami, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "H5",
+          "matchday": 3,
+          "kickoffVN": "2026-06-27T07:00:00+07:00",
+          "home": "Uruguay",
+          "away": "Spain",
+          "venue": "Estadio Akron",
+          "city": "Guadalajara, Mexico",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "H6",
+          "matchday": 3,
+          "kickoffVN": "2026-06-27T07:00:00+07:00",
+          "home": "Cape Verde",
+          "away": "Saudi Arabia",
+          "venue": "NRG Stadium",
+          "city": "Houston, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        }
+      ],
+      "standings": {
+        "Spain": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Cape Verde": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Saudi Arabia": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Uruguay": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        }
+      }
+    },
+    {
+      "id": "I",
+      "teams": [
+        "France",
+        "Senegal",
+        "Iraq",
+        "Norway"
+      ],
+      "matches": [
+        {
+          "id": "I1",
+          "matchday": 1,
+          "kickoffVN": "2026-06-17T02:00:00+07:00",
+          "home": "France",
+          "away": "Senegal",
+          "venue": "MetLife Stadium",
+          "city": "East Rutherford, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "I2",
+          "matchday": 1,
+          "kickoffVN": "2026-06-17T05:00:00+07:00",
+          "home": "Iraq",
+          "away": "Norway",
+          "venue": "Gillette Stadium",
+          "city": "Foxboro, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "I3",
+          "matchday": 2,
+          "kickoffVN": "2026-06-23T04:00:00+07:00",
+          "home": "France",
+          "away": "Iraq",
+          "venue": "Lincoln Financial Field",
+          "city": "Philadelphia, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "I4",
+          "matchday": 2,
+          "kickoffVN": "2026-06-23T07:00:00+07:00",
+          "home": "Norway",
+          "away": "Senegal",
+          "venue": "MetLife Stadium",
+          "city": "East Rutherford, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "I5",
+          "matchday": 3,
+          "kickoffVN": "2026-06-27T02:00:00+07:00",
+          "home": "Norway",
+          "away": "France",
+          "venue": "Gillette Stadium",
+          "city": "Foxboro, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "I6",
+          "matchday": 3,
+          "kickoffVN": "2026-06-27T02:00:00+07:00",
+          "home": "Senegal",
+          "away": "Iraq",
+          "venue": "BMO Field",
+          "city": "Toronto, Canada",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        }
+      ],
+      "standings": {
+        "France": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Senegal": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Iraq": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Norway": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        }
+      }
+    },
+    {
+      "id": "J",
+      "teams": [
+        "Argentina",
+        "Algeria",
+        "Austria",
+        "Jordan"
+      ],
+      "matches": [
+        {
+          "id": "J1",
+          "matchday": 1,
+          "kickoffVN": "2026-06-17T08:00:00+07:00",
+          "home": "Argentina",
+          "away": "Algeria",
+          "venue": "Arrowhead Stadium",
+          "city": "Kansas City, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "J2",
+          "matchday": 1,
+          "kickoffVN": "2026-06-17T11:00:00+07:00",
+          "home": "Austria",
+          "away": "Jordan",
+          "venue": "Levi's Stadium",
+          "city": "Santa Clara, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "J3",
+          "matchday": 2,
+          "kickoffVN": "2026-06-23T00:00:00+07:00",
+          "home": "Argentina",
+          "away": "Austria",
+          "venue": "AT&T Stadium",
+          "city": "Arlington, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "J4",
+          "matchday": 2,
+          "kickoffVN": "2026-06-23T10:00:00+07:00",
+          "home": "Jordan",
+          "away": "Algeria",
+          "venue": "Levi's Stadium",
+          "city": "Santa Clara, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "J5",
+          "matchday": 3,
+          "kickoffVN": "2026-06-28T09:00:00+07:00",
+          "home": "Jordan",
+          "away": "Argentina",
+          "venue": "AT&T Stadium",
+          "city": "Arlington, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "J6",
+          "matchday": 3,
+          "kickoffVN": "2026-06-28T09:00:00+07:00",
+          "home": "Algeria",
+          "away": "Austria",
+          "venue": "Arrowhead Stadium",
+          "city": "Kansas City, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        }
+      ],
+      "standings": {
+        "Argentina": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Algeria": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Austria": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Jordan": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        }
+      }
+    },
+    {
+      "id": "K",
+      "teams": [
+        "Portugal",
+        "DR Congo",
+        "Uzbekistan",
+        "Colombia"
+      ],
+      "matches": [
+        {
+          "id": "K1",
+          "matchday": 1,
+          "kickoffVN": "2026-06-18T00:00:00+07:00",
+          "home": "Portugal",
+          "away": "DR Congo",
+          "venue": "NRG Stadium",
+          "city": "Houston, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "K2",
+          "matchday": 1,
+          "kickoffVN": "2026-06-18T09:00:00+07:00",
+          "home": "Uzbekistan",
+          "away": "Colombia",
+          "venue": "Estadio Azteca",
+          "city": "Mexico City, Mexico",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "K3",
+          "matchday": 2,
+          "kickoffVN": "2026-06-24T00:00:00+07:00",
+          "home": "Portugal",
+          "away": "Uzbekistan",
+          "venue": "NRG Stadium",
+          "city": "Houston, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "K4",
+          "matchday": 2,
+          "kickoffVN": "2026-06-24T09:00:00+07:00",
+          "home": "Colombia",
+          "away": "DR Congo",
+          "venue": "Estadio Akron",
+          "city": "Guadalajara, Mexico",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "K5",
+          "matchday": 3,
+          "kickoffVN": "2026-06-28T06:30:00+07:00",
+          "home": "Colombia",
+          "away": "Portugal",
+          "venue": "Hard Rock Stadium",
+          "city": "Miami, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "K6",
+          "matchday": 3,
+          "kickoffVN": "2026-06-28T06:30:00+07:00",
+          "home": "DR Congo",
+          "away": "Uzbekistan",
+          "venue": "Mercedes-Benz Stadium",
+          "city": "Atlanta, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        }
+      ],
+      "standings": {
+        "Portugal": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "DR Congo": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Uzbekistan": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Colombia": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        }
+      }
+    },
+    {
+      "id": "L",
+      "teams": [
+        "England",
+        "Croatia",
+        "Ghana",
+        "Panama"
+      ],
+      "matches": [
+        {
+          "id": "L1",
+          "matchday": 1,
+          "kickoffVN": "2026-06-18T03:00:00+07:00",
+          "home": "England",
+          "away": "Croatia",
+          "venue": "AT&T Stadium",
+          "city": "Arlington, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "L2",
+          "matchday": 1,
+          "kickoffVN": "2026-06-18T06:00:00+07:00",
+          "home": "Ghana",
+          "away": "Panama",
+          "venue": "BMO Field",
+          "city": "Toronto, Canada",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "L3",
+          "matchday": 2,
+          "kickoffVN": "2026-06-24T03:00:00+07:00",
+          "home": "England",
+          "away": "Ghana",
+          "venue": "Gillette Stadium",
+          "city": "Foxboro, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "L4",
+          "matchday": 2,
+          "kickoffVN": "2026-06-24T06:00:00+07:00",
+          "home": "Panama",
+          "away": "Croatia",
+          "venue": "BMO Field",
+          "city": "Toronto, Canada",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "L5",
+          "matchday": 3,
+          "kickoffVN": "2026-06-28T04:00:00+07:00",
+          "home": "Panama",
+          "away": "England",
+          "venue": "MetLife Stadium",
+          "city": "East Rutherford, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        },
+        {
+          "id": "L6",
+          "matchday": 3,
+          "kickoffVN": "2026-06-28T04:00:00+07:00",
+          "home": "Croatia",
+          "away": "Ghana",
+          "venue": "Lincoln Financial Field",
+          "city": "Philadelphia, USA",
+          "scoreHome": null,
+          "scoreAway": null,
+          "winner": null
+        }
+      ],
+      "standings": {
+        "England": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Croatia": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Ghana": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        },
+        "Panama": {
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDiff": 0,
+          "points": 0
+        }
+      }
+    }
+  ]
+}
