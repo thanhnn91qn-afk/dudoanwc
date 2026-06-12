@@ -102,5 +102,21 @@ data.teams = renameKeys(data.teams);
 renameRefs(data.groups);
 renameRefs(data.knockout);
 
+// Bước 3: đổi tên trong groups[].teams[] (mảng tên đội của mỗi bảng)
+let renamedGroupTeams = 0;
+for (const g of data.groups) {
+  if (Array.isArray(g.teams)) {
+    g.teams = g.teams.map((t) => {
+      if (TEAM_VI[t] && TEAM_VI[t] !== t) {
+        renamedGroupTeams += 1;
+        return TEAM_VI[t];
+      }
+      return t;
+    });
+  }
+}
+
 writeFileSync(jsonPath, JSON.stringify(data, null, 2) + "\n", "utf8");
-console.log(`✓ Đổi xong. ${renamedKeys} key trong teams + ${renamedRefs} reference trong home/away.`);
+console.log(
+  `✓ Đổi xong. ${renamedKeys} key trong teams + ${renamedRefs} reference home/away + ${renamedGroupTeams} tên trong groups[].teams[].`,
+);

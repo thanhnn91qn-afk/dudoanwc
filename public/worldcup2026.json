@@ -264,10 +264,10 @@
     {
       "id": "A",
       "teams": [
-        "Mexico",
-        "South Africa",
-        "Korea Republic",
-        "Czechia"
+        "Mê-hi-cô",
+        "Nam Phi",
+        "Hàn Quốc",
+        "Séc"
       ],
       "matches": [
         {
@@ -389,10 +389,10 @@
     {
       "id": "B",
       "teams": [
-        "Canada",
-        "Bosnia & Herzegovina",
+        "Ca-na-đa",
+        "Bò-xnơ-na Héc-xê-gô-vi-na",
         "Qatar",
-        "Switzerland"
+        "Thụy Sĩ"
       ],
       "matches": [
         {
@@ -514,9 +514,9 @@
     {
       "id": "C",
       "teams": [
-        "Brazil",
-        "Morocco",
-        "Haiti",
+        "Bra-xin",
+        "Ma-rốc",
+        "Ha-i-ti",
         "Scotland"
       ],
       "matches": [
@@ -639,10 +639,10 @@
     {
       "id": "D",
       "teams": [
-        "United States",
-        "Paraguay",
-        "Australia",
-        "Türkiye"
+        "Mỹ",
+        "Pa-ra-goay",
+        "Úc",
+        "Thổ Nhĩ Kỳ"
       ],
       "matches": [
         {
@@ -764,9 +764,9 @@
     {
       "id": "E",
       "teams": [
-        "Germany",
+        "Đức",
         "Curaçao",
-        "Ivory Coast",
+        "Bờ Biển Ngà",
         "Ecuador"
       ],
       "matches": [
@@ -889,10 +889,10 @@
     {
       "id": "F",
       "teams": [
-        "Netherlands",
-        "Japan",
-        "Sweden",
-        "Tunisia"
+        "Hà Lan",
+        "Nhật Bản",
+        "Thụy Điển",
+        "Tuy-ni-di"
       ],
       "matches": [
         {
@@ -1014,8 +1014,8 @@
     {
       "id": "G",
       "teams": [
-        "Belgium",
-        "Egypt",
+        "Bỉ",
+        "Ai Cập",
         "Iran",
         "New Zealand"
       ],
@@ -1139,10 +1139,10 @@
     {
       "id": "H",
       "teams": [
-        "Spain",
-        "Cape Verde",
-        "Saudi Arabia",
-        "Uruguay"
+        "Tây Ban Nha",
+        "Cáp-ve",
+        "Ả-rập Xê-út",
+        "U-ru-goay"
       ],
       "matches": [
         {
@@ -1264,10 +1264,10 @@
     {
       "id": "I",
       "teams": [
-        "France",
-        "Senegal",
-        "Iraq",
-        "Norway"
+        "Pháp",
+        "Sé-né-gan",
+        "I-rọc",
+        "Na Uy"
       ],
       "matches": [
         {
@@ -1389,9 +1389,9 @@
     {
       "id": "J",
       "teams": [
-        "Argentina",
+        "Ác-hen-ti-na",
         "Algeria",
-        "Austria",
+        "Áo",
         "Jordan"
       ],
       "matches": [
@@ -1514,10 +1514,10 @@
     {
       "id": "K",
       "teams": [
-        "Portugal",
-        "DR Congo",
-        "Uzbekistan",
-        "Colombia"
+        "Bồ Đào Nha",
+        "Công-gô",
+        "U-dô-bê-ki-xtan",
+        "Cô-lôm-bi-a"
       ],
       "matches": [
         {
@@ -1639,10 +1639,10 @@
     {
       "id": "L",
       "teams": [
-        "England",
-        "Croatia",
+        "Anh",
+        "Crô-a-ti-a",
         "Ghana",
-        "Panama"
+        "Pa-na-ma"
       ],
       "matches": [
         {
