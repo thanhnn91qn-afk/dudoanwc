@@ -40,7 +40,7 @@ export default function RootLayout({
           Twemoji scan DOM và thay thế mọi emoji (kể cả sinh ra sau) thành <img>.
         */}
         <Script
-          src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/dist/twemoji.min.js"
+          src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"
           strategy="afterInteractive"
         />
         <Script id="twemoji-init" strategy="afterInteractive">
