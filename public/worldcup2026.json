@@ -164,7 +164,7 @@
       "confederation": "UEFA",
       "group": "H"
     },
-    "Cáp-ve": {
+    "Cộng hòa Cabo Verde": {
       "flag": "🇨🇻",
       "confederation": "CAF",
       "group": "H"
@@ -344,7 +344,7 @@
         }
       ],
       "standings": {
-        "Mexico": {
+        "Mê-hi-cô": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -354,7 +354,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "South Africa": {
+        "Nam Phi": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -364,7 +364,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Korea Republic": {
+        "Hàn Quốc": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -374,7 +374,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Czechia": {
+        "Séc": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -469,7 +469,7 @@
         }
       ],
       "standings": {
-        "Canada": {
+        "Ca-na-đa": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -479,7 +479,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Bosnia & Herzegovina": {
+        "Bosna và Hercegovina": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -499,7 +499,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Switzerland": {
+        "Thụy Sĩ": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -594,7 +594,7 @@
         }
       ],
       "standings": {
-        "Brazil": {
+        "Bra-xin": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -604,7 +604,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Morocco": {
+        "Ma-rốc": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -614,7 +614,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Haiti": {
+        "Ha-i-ti": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -719,7 +719,7 @@
         }
       ],
       "standings": {
-        "United States": {
+        "Mỹ": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -729,7 +729,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Paraguay": {
+        "Pa-ra-goay": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -739,7 +739,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Australia": {
+        "Úc": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -749,7 +749,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Türkiye": {
+        "Thổ Nhĩ Kỳ": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -844,7 +844,7 @@
         }
       ],
       "standings": {
-        "Germany": {
+        "Đức": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -864,7 +864,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Ivory Coast": {
+        "Bờ Biển Ngà": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -969,7 +969,7 @@
         }
       ],
       "standings": {
-        "Netherlands": {
+        "Hà Lan": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -979,7 +979,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Japan": {
+        "Nhật Bản": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -989,7 +989,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Sweden": {
+        "Thụy Điển": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -999,7 +999,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Tunisia": {
+        "Tuy-ni-di": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1094,7 +1094,7 @@
         }
       ],
       "standings": {
-        "Belgium": {
+        "Bỉ": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1104,7 +1104,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Egypt": {
+        "Ai Cập": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1140,7 +1140,7 @@
       "id": "H",
       "teams": [
         "Tây Ban Nha",
-        "Cáp-ve",
+        "Cộng hòa Cabo Verde",
         "Ả-rập Xê-út",
         "U-ru-goay"
       ],
@@ -1150,7 +1150,7 @@
           "matchday": 1,
           "kickoffVN": "2026-06-15T23:00:00+07:00",
           "home": "Tây Ban Nha",
-          "away": "Cáp-ve",
+          "away": "Cộng hòa Cabo Verde",
           "venue": "Mercedes-Benz Stadium",
           "city": "Atlanta, USA",
           "scoreHome": null,
@@ -1186,7 +1186,7 @@
           "matchday": 2,
           "kickoffVN": "2026-06-22T05:00:00+07:00",
           "home": "U-ru-goay",
-          "away": "Cáp-ve",
+          "away": "Cộng hòa Cabo Verde",
           "venue": "Hard Rock Stadium",
           "city": "Miami, USA",
           "scoreHome": null,
@@ -1209,7 +1209,7 @@
           "id": "H6",
           "matchday": 3,
           "kickoffVN": "2026-06-27T07:00:00+07:00",
-          "home": "Cáp-ve",
+          "home": "Cộng hòa Cabo Verde",
           "away": "Ả-rập Xê-út",
           "venue": "NRG Stadium",
           "city": "Houston, USA",
@@ -1219,7 +1219,7 @@
         }
       ],
       "standings": {
-        "Spain": {
+        "Tây Ban Nha": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1229,7 +1229,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Cape Verde": {
+        "Cộng hòa Cabo Verde": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1239,7 +1239,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Saudi Arabia": {
+        "Ả-rập Xê-út": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1249,7 +1249,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Uruguay": {
+        "U-ru-goay": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1344,7 +1344,7 @@
         }
       ],
       "standings": {
-        "France": {
+        "Pháp": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1354,7 +1354,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Senegal": {
+        "Sé-né-gan": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1364,7 +1364,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Iraq": {
+        "I-rắc": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1374,7 +1374,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Norway": {
+        "Na Uy": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1469,7 +1469,7 @@
         }
       ],
       "standings": {
-        "Argentina": {
+        "Ác-hen-ti-na": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1489,7 +1489,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Austria": {
+        "Áo": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1594,7 +1594,7 @@
         }
       ],
       "standings": {
-        "Portugal": {
+        "Bồ Đào Nha": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1604,7 +1604,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "DR Congo": {
+        "Công-gô": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1614,7 +1614,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Uzbekistan": {
+        "U-dô-bê-ki-xtan": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1624,7 +1624,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Colombia": {
+        "Cô-lôm-bi-a": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1719,7 +1719,7 @@
         }
       ],
       "standings": {
-        "England": {
+        "Anh": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1729,7 +1729,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Croatia": {
+        "Crô-a-ti-a": {
           "played": 0,
           "won": 0,
           "drawn": 0,
@@ -1749,7 +1749,7 @@
           "goalDiff": 0,
           "points": 0
         },
-        "Panama": {
+        "Pa-na-ma": {
           "played": 0,
           "won": 0,
           "drawn": 0,

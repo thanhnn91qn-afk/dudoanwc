@@ -19,7 +19,9 @@ const TEAM_VI = {
   "Bò-xnơ-na Héc-xê-gô-vi-na": "Bosna và Hercegovina",
   "Brazil": "Bra-xin",
   "Canada": "Ca-na-đa",
-  "Cape Verde": "Cáp-ve",
+  "Cape Verde": "Cộng hòa Cabo Verde",
+  // Map TV cũ → TV mới để re-apply khi JSON đã có sẵn TV cũ
+  "Cáp-ve": "Cộng hòa Cabo Verde",
   "Colombia": "Cô-lôm-bi-a",
   "Croatia": "Crô-a-ti-a",
   "Cura\u00e7ao": "Cura\u00e7ao",
@@ -121,6 +123,22 @@ for (const g of data.groups) {
   }
 }
 
+// Bước 3b: đổi key trong groups[].standings[team] (object dạng {[teamName]: stats})
+// Vì GroupView không đọc standings nữa (tính dynamic từ results), nhưng để
+// sạch dữ liệu vẫn đổi key cho khớp với teams[] ở trên.
+let renamedStandingsKeys = 0;
+for (const g of data.groups) {
+  if (g.standings && typeof g.standings === "object") {
+    const newStandings = {};
+    for (const [k, v] of Object.entries(g.standings)) {
+      const newK = TEAM_VI[k] ?? k;
+      if (newK !== k) renamedStandingsKeys += 1;
+      newStandings[newK] = v;
+    }
+    g.standings = newStandings;
+  }
+}
+
 // Bước 4: ghi đè cả 2 chiều cho home/away — quan trọng khi re-apply mapping
 //         (vd "I-rọc" → "I-rắc") mà key trong teams vẫn là TV cũ.
 let reapplied = 0;
@@ -146,5 +164,5 @@ reapplyRefs(data.knockout);
 
 writeFileSync(jsonPath, JSON.stringify(data, null, 2) + "\n", "utf8");
 console.log(
-  `✓ Đổi xong. ${renamedKeys} key trong teams + ${renamedRefs} reference home/away + ${renamedGroupTeams} tên trong groups[].teams[] + ${reapplied} ghi đè lại.`,
+  `✓ Đổi xong. ${renamedKeys} key trong teams + ${renamedRefs} reference home/away + ${renamedGroupTeams} tên trong groups[].teams[] + ${renamedStandingsKeys} key trong groups[].standings + ${reapplied} ghi đè lại.`,
 );
