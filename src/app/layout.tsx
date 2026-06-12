@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,7 +31,33 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        {children}
+        {/*
+          Twemoji: render country flag emoji thành ảnh PNG (maxcdn).
+          Cần vì Windows Chrome/Edge/Firefox không có font emoji hỗ trợ
+          Regional Indicator Symbols → cờ hiện thành 2 chữ cái (MX, BR, ...).
+          Twemoji scan DOM và thay thế mọi emoji (kể cả sinh ra sau) thành <img>.
+        */}
+        <Script
+          src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"
+          strategy="afterInteractive"
+        />
+        <Script id="twemoji-init" strategy="afterInteractive">
+          {`
+            (function() {
+              if (typeof twemoji === 'undefined') return;
+              // Parse mọi emoji kể cả trong title/alt
+              twemoji_opts = { folder: 'svg', ext: '.svg', className: 'twemoji', size: 'svg' };
+              function parse() { try { twemoji.parse(document.body); } catch (e) {} }
+              parse();
+              // Re-parse khi DOM thay đổi (Next.js SPA route + realtime update)
+              var obs = new MutationObserver(function() { parse(); });
+              obs.observe(document.body, { childList: true, subtree: true });
+            })();
+          `}
+        </Script>
+      </body>
     </html>
   );
 }
