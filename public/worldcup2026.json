@@ -44,7 +44,7 @@
       "confederation": "CONCACAF",
       "group": "B"
     },
-    "Bò-xnơ-na Héc-xê-gô-vi-na": {
+    "Bosna và Hercegovina": {
       "flag": "🇧🇦",
       "confederation": "UEFA",
       "group": "B"
@@ -390,7 +390,7 @@
       "id": "B",
       "teams": [
         "Ca-na-đa",
-        "Bò-xnơ-na Héc-xê-gô-vi-na",
+        "Bosna và Hercegovina",
         "Qatar",
         "Thụy Sĩ"
       ],
@@ -400,7 +400,7 @@
           "matchday": 1,
           "kickoffVN": "2026-06-13T02:00:00+07:00",
           "home": "Ca-na-đa",
-          "away": "Bò-xnơ-na Héc-xê-gô-vi-na",
+          "away": "Bosna và Hercegovina",
           "venue": "BMO Field",
           "city": "Toronto, Canada",
           "scoreHome": null,
@@ -424,7 +424,7 @@
           "matchday": 2,
           "kickoffVN": "2026-06-19T02:00:00+07:00",
           "home": "Thụy Sĩ",
-          "away": "Bò-xnơ-na Héc-xê-gô-vi-na",
+          "away": "Bosna và Hercegovina",
           "venue": "SoFi Stadium",
           "city": "Inglewood, USA",
           "scoreHome": null,
@@ -459,7 +459,7 @@
           "id": "B6",
           "matchday": 3,
           "kickoffVN": "2026-06-25T02:00:00+07:00",
-          "home": "Bò-xnơ-na Héc-xê-gô-vi-na",
+          "home": "Bosna và Hercegovina",
           "away": "Qatar",
           "venue": "Lumen Field",
           "city": "Seattle, USA",

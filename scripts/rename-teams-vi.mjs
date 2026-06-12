@@ -14,7 +14,9 @@ const TEAM_VI = {
   "Australia": "Úc",
   "Austria": "Áo",
   "Belgium": "Bỉ",
-  "Bosnia & Herzegovina": "Bò-xnơ-na Héc-xê-gô-vi-na",
+  "Bosnia & Herzegovina": "Bosna và Hercegovina",
+  // Map TV cũ → TV mới để re-apply khi JSON đã có sẵn TV cũ
+  "Bò-xnơ-na Héc-xê-gô-vi-na": "Bosna và Hercegovina",
   "Brazil": "Bra-xin",
   "Canada": "Ca-na-đa",
   "Cape Verde": "Cáp-ve",
