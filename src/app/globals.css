@@ -3,55 +3,80 @@
 /* Tailwind v4: enable class-based dark mode (default: light) */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/*
+  Football / Stadium theme — neutral-dominant, easy on the eyes.
+  Pitch green is used ONLY as an accent, never as a page background.
+*/
 :root {
-  /* Light theme */
-  --bg-base: #f0fdf4;
+  /* Light — warm paper / matchday programme */
+  --bg-page: #f7f6f3;
+  --bg-base: #efeee9;
   --bg-elevated: #ffffff;
-  --bg-soft: #dcfce7;
+  --bg-soft: #f1f0ec;
   --bg-input: #ffffff;
-  --text-primary: #052e16;
-  --text-secondary: #166534;
-  --text-muted: #22c55e;
-  --border-soft: rgba(5, 46, 22, 0.08);
-  --border-medium: rgba(5, 46, 22, 0.15);
-  --shadow-card: 0 2px 8px rgba(5, 46, 22, 0.06), 0 1px 2px rgba(5, 46, 22, 0.04);
-  --shadow-card-hover: 0 8px 24px rgba(5, 46, 22, 0.1);
-  --shadow-card-lg: 0 8px 32px rgba(5, 46, 22, 0.12);
-  --gradient-a: rgba(16, 185, 129, 0.1);
-  --gradient-b: rgba(14, 165, 233, 0.1);
-  --gradient-c: rgba(245, 158, 11, 0.06);
-  --bg-page: #ffffff;
-  --accent-primary: #10b981;
-  --accent-primary-hover: #059669;
-  --accent-secondary: #0ea5e9;
-  --accent-gold: #f59e0b;
-  --accent-gold-bg: rgba(245, 158, 11, 0.12);
-  --radius-card: 1.25rem;
-  --radius-btn: 0.75rem;
+
+  --text-primary: #1c1f1d;
+  --text-secondary: #545a55;
+  --text-muted: #8a8f89;
+
+  --border-soft: rgba(28, 31, 29, 0.08);
+  --border-medium: rgba(28, 31, 29, 0.14);
+
+  --shadow-card: 0 1px 2px rgba(28, 31, 29, 0.04), 0 2px 8px rgba(28, 31, 29, 0.05);
+  --shadow-card-hover: 0 8px 24px rgba(28, 31, 29, 0.09);
+  --shadow-card-lg: 0 10px 36px rgba(28, 31, 29, 0.12);
+
+  /* Pitch green — accent only */
+  --pitch: #15803d;
+  --pitch-hover: #166534;
+  --pitch-soft: rgba(21, 128, 61, 0.1);
+  --pitch-line: rgba(21, 128, 61, 0.14);
+
+  /* Secondary accents */
+  --accent-sky: #0369a1;
+  --accent-gold: #b45309;
+  --accent-gold-bg: rgba(180, 83, 9, 0.1);
+
+  /* Background tint (very subtle, neutral-warm) */
+  --gradient-a: rgba(21, 128, 61, 0.05);
+  --gradient-b: rgba(3, 105, 161, 0.04);
+  --gradient-c: rgba(180, 83, 9, 0.03);
+
+  --radius-card: 1.1rem;
+  --radius-btn: 0.7rem;
 }
 
 .dark {
-  --bg-base: #052e16;
-  --bg-elevated: #064e3b;
-  --bg-soft: rgba(255, 255, 255, 0.04);
-  --bg-input: rgba(0, 0, 0, 0.4);
-  --text-primary: #dcfce7;
-  --text-secondary: #86efac;
-  --text-muted: #22c55e;
-  --border-soft: rgba(220, 252, 231, 0.1);
-  --border-medium: rgba(220, 252, 231, 0.15);
-  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --shadow-card-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --gradient-a: rgba(16, 185, 129, 0.15);
-  --gradient-b: rgba(14, 165, 233, 0.15);
-  --gradient-c: rgba(245, 158, 11, 0.1);
-  --bg-page: #021a0f;
-  --accent-primary: #10b981;
-  --accent-primary-hover: #34d399;
-  --accent-secondary: #38bdf8;
+  /* Dark — stadium at night */
+  --bg-page: #0e1211;
+  --bg-base: #141917;
+  --bg-elevated: #1a201d;
+  --bg-soft: rgba(255, 255, 255, 0.035);
+  --bg-input: rgba(0, 0, 0, 0.35);
+
+  --text-primary: #e8eae7;
+  --text-secondary: #a3aaa3;
+  --text-muted: #6f766f;
+
+  --border-soft: rgba(232, 234, 231, 0.08);
+  --border-medium: rgba(232, 234, 231, 0.14);
+
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-card-lg: 0 10px 36px rgba(0, 0, 0, 0.55);
+
+  --pitch: #34d399;
+  --pitch-hover: #6ee7b7;
+  --pitch-soft: rgba(52, 211, 153, 0.12);
+  --pitch-line: rgba(52, 211, 153, 0.14);
+
+  --accent-sky: #38bdf8;
   --accent-gold: #fbbf24;
-  --accent-gold-bg: rgba(251, 191, 36, 0.15);
+  --accent-gold-bg: rgba(251, 191, 36, 0.14);
+
+  --gradient-a: rgba(52, 211, 153, 0.07);
+  --gradient-b: rgba(56, 189, 248, 0.05);
+  --gradient-c: rgba(251, 191, 36, 0.04);
 }
 
 @theme inline {
@@ -72,43 +97,26 @@ body {
 
 /* ─── Entrance Animations ─── */
 @keyframes fadeSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 @keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
-
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
 
-/* Staggered card entrance */
 .animate-entrance {
   animation: fadeSlideUp 0.4s ease-out forwards;
   opacity: 0;
 }
-
 .animate-entrance-1 { animation-delay: 0.05s; }
 .animate-entrance-2 { animation-delay: 0.10s; }
 .animate-entrance-3 { animation-delay: 0.15s; }
@@ -116,31 +124,68 @@ body {
 .animate-entrance-5 { animation-delay: 0.25s; }
 .animate-entrance-6 { animation-delay: 0.30s; }
 
-/* Scale entrance for modal-like elements */
 .animate-scale-in {
   animation: scaleIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* Skeleton shimmer loading */
 .skeleton {
-  background: linear-gradient(
-    90deg,
-    var(--bg-soft) 25%,
-    var(--bg-elevated) 50%,
-    var(--bg-soft) 75%
-  );
+  background: linear-gradient(90deg, var(--bg-soft) 25%, var(--bg-elevated) 50%, var(--bg-soft) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
 
-/* ─── Background ─── */
+/* ─── Page background: subtle neutral tint ─── */
 .app-bg {
   background:
-    radial-gradient(ellipse 1200px 700px at 85% -5%, var(--gradient-a), transparent 55%),
-    radial-gradient(ellipse 900px 500px at 0% 5%, var(--gradient-b), transparent 55%),
-    radial-gradient(ellipse 600px 300px at 50% 100%, var(--gradient-c), transparent 50%),
+    radial-gradient(ellipse 1100px 600px at 88% -8%, var(--gradient-a), transparent 55%),
+    radial-gradient(ellipse 800px 480px at 5% 8%, var(--gradient-b), transparent 55%),
+    radial-gradient(ellipse 600px 300px at 50% 105%, var(--gradient-c), transparent 50%),
     var(--bg-page);
   min-height: 100dvh;
+}
+
+/* ─── Football pitch decoration (subtle, for hero/header banners) ─── */
+.pitch-lines {
+  position: relative;
+  overflow: hidden;
+}
+.pitch-lines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    /* center line */
+    linear-gradient(to right, transparent calc(50% - 1px), var(--pitch-line) calc(50% - 1px), var(--pitch-line) calc(50% + 1px), transparent calc(50% + 1px)),
+    /* outer touch lines */
+    linear-gradient(to right, var(--pitch-line) 1px, transparent 1px),
+    linear-gradient(to left, var(--pitch-line) 1px, transparent 1px);
+  opacity: 0.5;
+}
+/* center circle */
+.pitch-lines::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  border: 1.5px solid var(--pitch-line);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* mowed grass stripes for accent banners */
+.pitch-stripes {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--pitch) 0,
+    var(--pitch) 40px,
+    var(--pitch-hover) 40px,
+    var(--pitch-hover) 80px
+  );
 }
 
 /* ─── Card Base ─── */
@@ -151,11 +196,9 @@ body {
   box-shadow: var(--shadow-card);
   transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
-
 .card:hover {
   box-shadow: var(--shadow-card-hover);
 }
-
 .card-elevated {
   background: var(--bg-elevated);
   border: 1px solid var(--border-medium);
@@ -163,29 +206,26 @@ body {
   box-shadow: var(--shadow-card-lg);
 }
 
-/* ─── Button Base ─── */
+/* ─── Buttons ─── */
 .btn-primary {
-  background: var(--accent-primary);
-  color: white;
+  background: var(--pitch);
+  color: #ffffff;
   font-weight: 600;
   border-radius: var(--radius-btn);
   transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
   cursor: pointer;
 }
-
 .btn-primary:hover {
-  background: var(--accent-primary-hover);
+  background: var(--pitch-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 14px var(--pitch-soft);
 }
-
 .btn-primary:active {
   transform: translateY(0) scale(0.98);
   box-shadow: none;
 }
-
 .btn-primary:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
@@ -200,29 +240,26 @@ body {
   transition: background 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
   cursor: pointer;
 }
-
 .btn-secondary:hover {
   background: var(--bg-base);
   border-color: var(--border-medium);
   transform: translateY(-1px);
 }
-
 .btn-secondary:active {
   transform: translateY(0) scale(0.98);
 }
 
-/* ─── Touch / Press feedback ─── */
+/* ─── Touch feedback ─── */
 .touch-feedback {
   transition: transform 0.1s ease, opacity 0.1s ease;
 }
-
 .touch-feedback:active {
   transform: scale(0.97);
 }
 
 /* ─── Focus ring ─── */
 *:focus-visible {
-  outline: 2px solid var(--accent-primary);
+  outline: 2px solid var(--pitch);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -233,58 +270,65 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 input[type="number"] {
   -moz-appearance: textfield;
 }
 
-/* ─── Custom scrollbar ─── */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border-medium);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
-}
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
 /* ─── Reduced motion ─── */
 @media (prefers-reduced-motion: reduce) {
-  .animate-entrance,
-  .animate-scale-in,
-  .skeleton {
+  .animate-entrance, .animate-scale-in, .skeleton {
     animation: none;
     opacity: 1;
     transform: none;
   }
-
   * {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
 }
 
-/* ─── Gold badge accent ─── */
+/* ─── Result card glow (pitch accent) ─── */
+.result-correct {
+  border-color: var(--pitch-line);
+  background: var(--pitch-soft);
+}
+
 .badge-gold {
   background: var(--accent-gold-bg);
   color: var(--accent-gold);
 }
 
-/* ─── Result card glow ─── */
-.result-correct {
-  border-color: rgba(16, 185, 129, 0.4);
-  background: rgba(16, 185, 129, 0.04);
+/* ─── Pitch accent helpers (calm green, no harsh emerald) ─── */
+.text-pitch { color: var(--pitch); }
+.bg-pitch { background: var(--pitch); }
+.bg-pitch-soft { background: var(--pitch-soft); }
+.border-pitch { border-color: var(--pitch); }
+.text-gold { color: var(--accent-gold); }
+
+/* Brand gradient — deep grass, easy on the eyes */
+.brand-grad {
+  background: linear-gradient(135deg, #166534 0%, #15803d 55%, #0f766e 100%);
+}
+.dark .brand-grad {
+  background: linear-gradient(135deg, #047857 0%, #0d9488 100%);
 }
 
-.dark .result-correct {
-  background: rgba(16, 185, 129, 0.08);
+/* Brand text gradient */
+.brand-text {
+  background: linear-gradient(135deg, #166534, #0f766e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.dark .brand-text {
+  background: linear-gradient(135deg, #34d399, #2dd4bf);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

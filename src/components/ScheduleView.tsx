@@ -221,7 +221,7 @@ export default function ScheduleView({
                     {vnDate(dt)}
                   </h2>
                   {(isToday || isTomorrow) && (
-                    <span className="flex items-center gap-1 rounded-full bg-emerald-500/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-300">
+                    <span className="bg-pitch-soft text-pitch flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider">
                       <IconClock size={9} />
                       {isToday ? "Hôm nay" : "Ngày mai"}
                     </span>

@@ -149,7 +149,7 @@ export default function MatchCard({
 
         <div className="flex flex-col items-center gap-1.5">
           {result ? (
-            <div className="rounded-xl bg-emerald-500/15 px-4 py-2 text-center font-mono text-2xl font-black tracking-tight text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-300">
+            <div className="bg-pitch-soft text-pitch rounded-xl px-4 py-2 text-center font-mono text-2xl font-black tracking-tight">
               {result.scoreHome}
               <span className="mx-1 text-[var(--text-muted)]">—</span>
               {result.scoreAway}
@@ -170,7 +170,7 @@ export default function MatchCard({
       {/* Locked (waiting for previous round) */}
       {locked && (
         <div className="mt-3 flex items-center gap-2 rounded-xl border border-[var(--border-soft)] bg-[var(--bg-soft)] p-2.5 text-[11px] text-[var(--text-muted)]">
-          <IconInfo size={13} className="shrink-0 text-sky-500" />
+          <IconInfo size={13} className="shrink-0 text-[var(--accent-sky)]" />
           <span>
             Chờ kết quả vòng trước ({match.homeSeed} vs {match.awaySeed})
           </span>
@@ -260,7 +260,7 @@ export default function MatchCard({
             </strong>
           </span>
           {myPickCorrect ? (
-            <span className="flex items-center gap-1 font-bold text-emerald-600 dark:text-emerald-300">
+            <span className="text-pitch flex items-center gap-1 font-bold">
               <IconCheck size={12} />
               Đúng
             </span>
@@ -370,15 +370,16 @@ function PickButton({
   const baseClass = `flex flex-col items-center justify-center rounded-xl py-2.5 text-xs font-semibold transition-all duration-150 touch-feedback`;
   const activeClass =
     accent === "emerald"
-      ? "bg-emerald-500 text-white shadow-md shadow-emerald-500/30"
+      ? "bg-pitch text-white shadow-md shadow-black/10"
       : accent === "sky"
-        ? "bg-sky-500 text-white shadow-md shadow-sky-500/30"
-        : "bg-slate-500 text-white shadow-md shadow-slate-500/30";
+        ? "text-white shadow-md shadow-black/10"
+        : "bg-slate-500 text-white shadow-md shadow-black/10";
+  const activeStyle = active && accent === "sky" ? { background: "var(--accent-sky)" } : undefined;
   const inactiveClass =
     "bg-[var(--bg-soft)] text-[var(--text-secondary)] hover:bg-[var(--bg-base)] hover:text-[var(--text-primary)] border border-[var(--border-soft)]";
 
   return (
-    <button onClick={onClick} className={`${baseClass} ${active ? activeClass : inactiveClass}`}>
+    <button onClick={onClick} style={activeStyle} className={`${baseClass} ${active ? activeClass : inactiveClass}`}>
       <span>{label}</span>
       {sub && <span className="text-[10px] opacity-70">{sub}</span>}
     </button>
@@ -400,16 +401,18 @@ function WinnerButton({
 }) {
   const activeClass =
     accent === "emerald"
-      ? "bg-emerald-500 text-white"
+      ? "bg-pitch text-white"
       : accent === "sky"
-        ? "bg-sky-500 text-white"
+        ? "text-white"
         : "bg-slate-500 text-white";
+  const activeStyle = active && accent === "sky" ? { background: "var(--accent-sky)" } : undefined;
   const inactiveClass =
     "bg-[var(--bg-soft)] text-[var(--text-secondary)] hover:bg-[var(--bg-base)]";
 
   return (
     <button
       onClick={onClick}
+      style={activeStyle}
       className={`flex flex-col items-center justify-center rounded-xl py-2 text-xs font-semibold transition-all touch-feedback ${active ? activeClass : inactiveClass}`}
     >
       <span>{label}</span>
@@ -441,7 +444,7 @@ function ScoreInput({
           const v = parseInt(e.target.value || "0", 10);
           onChange(Number.isNaN(v) ? 0 : Math.max(0, Math.min(20, v)));
         }}
-        className="w-full rounded-xl border-2 border-[var(--border-medium)] bg-[var(--bg-input)] px-3 py-2 text-center text-base font-bold text-[var(--text-primary)] outline-none transition-all focus:border-emerald-500 dark:bg-black/30"
+        className="w-full rounded-xl border-2 border-[var(--border-medium)] bg-[var(--bg-input)] px-3 py-2 text-center text-base font-bold text-[var(--text-primary)] outline-none transition-all focus:border-[var(--pitch)] dark:bg-black/30"
       />
     </label>
   );
@@ -475,9 +478,7 @@ function VoteTally({
         {myPickCorrect !== null && myPickCorrect !== undefined && (
           <span
             className={`flex items-center gap-1 text-[11px] font-bold ${
-              myPickCorrect
-                ? "text-emerald-600 dark:text-emerald-300"
-                : "text-rose-500"
+              myPickCorrect ? "text-pitch" : "text-rose-500"
             }`}
           >
             {myPickCorrect ? <IconCheck size={11} /> : <IconX size={11} />}
@@ -506,18 +507,18 @@ function VoteBar({
   percent: number;
   accent: "emerald" | "sky" | "slate";
 }) {
-  const barColor =
+  const barStyle =
     accent === "emerald"
-      ? "bg-emerald-500"
+      ? { background: "var(--pitch)" }
       : accent === "sky"
-        ? "bg-sky-500"
-        : "bg-slate-400";
+        ? { background: "var(--accent-sky)" }
+        : { background: "var(--text-muted)" };
   const textColor =
     accent === "emerald"
-      ? "text-emerald-600 dark:text-emerald-300"
+      ? "text-pitch"
       : accent === "sky"
-        ? "text-sky-600 dark:text-sky-300"
-        : "text-slate-500 dark:text-zinc-300";
+        ? "text-[var(--accent-sky)]"
+        : "text-[var(--text-secondary)]";
 
   return (
     <div>
@@ -532,8 +533,8 @@ function VoteBar({
       </div>
       <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-[var(--border-soft)]">
         <div
-          className={`h-full ${barColor} rounded-full transition-all duration-500`}
-          style={{ width: `${percent}%` }}
+          className="h-full rounded-full transition-all duration-500"
+          style={{ width: `${percent}%`, ...barStyle }}
         />
       </div>
     </div>

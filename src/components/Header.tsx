@@ -38,7 +38,7 @@ export default function Header({
       <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3">
         {/* Brand */}
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-sky-500 text-white shadow-md shadow-emerald-500/20">
+          <div className="brand-grad flex h-10 w-10 items-center justify-center rounded-xl text-white shadow-md shadow-black/10">
             <IconSoccer size={22} />
           </div>
           <div>
@@ -54,17 +54,17 @@ export default function Header({
         {/* Stats pills */}
         <div className="flex flex-wrap items-center gap-2">
           <div className="flex items-center gap-1.5 rounded-full bg-[var(--bg-soft)] px-3 py-1.5 text-xs font-medium text-[var(--text-secondary)]">
-            <IconUsers size={13} className="text-emerald-500" />
+            <IconUsers size={13} className="text-pitch" />
             <span>{totalPlayers}</span>
             <span className="hidden sm:inline text-[var(--text-muted)]">người</span>
           </div>
           <div className="flex items-center gap-1.5 rounded-full bg-[var(--bg-soft)] px-3 py-1.5 text-xs font-medium text-[var(--text-secondary)]">
-            <IconTarget size={13} className="text-sky-500" />
+            <IconTarget size={13} className="text-[var(--accent-gold)]" />
             <span>{totalPredictions}</span>
             <span className="hidden sm:inline text-[var(--text-muted)]">lượt đoán</span>
           </div>
           <div className="flex items-center gap-1.5 rounded-full bg-[var(--bg-soft)] px-3 py-1.5 text-xs font-medium text-[var(--text-secondary)]">
-            <IconCheck size={13} className="text-emerald-500" />
+            <IconCheck size={13} className="text-pitch" />
             <span>{totalResults}</span>
             <span className="hidden sm:inline text-[var(--text-muted)]">kết quả</span>
           </div>
@@ -100,8 +100,8 @@ export default function Header({
               </button>
 
               {/* User badge */}
-              <div className="flex items-center gap-1.5 rounded-xl bg-emerald-500/15 px-3 py-2 text-xs font-bold text-emerald-600 dark:text-emerald-300">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 text-white text-[10px] font-black">
+              <div className="bg-pitch-soft text-pitch flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-bold">
+                <span className="bg-pitch flex h-5 w-5 items-center justify-center rounded-full text-white text-[10px] font-black">
                   {user[0].toUpperCase()}
                 </span>
                 <span className="max-w-24 truncate">{user}</span>

@@ -24,8 +24,8 @@ export default function Leaderboard({ data }: Props) {
   return (
     <div className="card overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-emerald-500 to-sky-500 px-4 py-3">
-        <div className="flex items-center gap-2 text-white">
+      <div className="brand-grad pitch-lines px-4 py-3">
+        <div className="relative flex items-center gap-2 text-white">
           <IconTrophy size={18} />
           <span className="font-bold">Bảng xếp hạng</span>
         </div>
@@ -40,7 +40,7 @@ export default function Leaderboard({ data }: Props) {
               <th className="px-2 py-2.5 text-center">Tổng điểm</th>
               <th className="px-2 py-2.5 text-center">
                 <span className="flex items-center justify-center gap-1">
-                  <IconCheck size={10} className="text-emerald-500" /> Đúng
+                  <IconCheck size={10} className="text-pitch" /> Đúng
                 </span>
               </th>
               <th className="px-2 py-2.5 text-center">
@@ -87,19 +87,19 @@ export default function Leaderboard({ data }: Props) {
                   <div className="flex items-center gap-2">
                     <span className="font-semibold text-[var(--text-primary)]">{s.player.name}</span>
                     {data.currentPlayerId === s.player.id && (
-                      <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-bold text-emerald-600 dark:text-emerald-300">
+                      <span className="bg-pitch-soft text-pitch rounded-full px-2 py-0.5 text-[10px] font-bold">
                         BẠN
                       </span>
                     )}
                   </div>
                 </td>
                 <td className="px-2 py-2.5 text-center">
-                  <span className="text-xl font-black text-emerald-600 dark:text-emerald-300">
+                  <span className="text-pitch text-xl font-black">
                     {s.totalPoints}
                   </span>
                 </td>
                 <td className="px-2 py-2.5 text-center">
-                  <span className="font-bold text-emerald-600 dark:text-emerald-300">{s.picksCorrect}</span>
+                  <span className="text-pitch font-bold">{s.picksCorrect}</span>
                 </td>
                 <td className="px-2 py-2.5 text-center">
                   <span className="font-bold text-rose-500">{s.picksWrong}</span>

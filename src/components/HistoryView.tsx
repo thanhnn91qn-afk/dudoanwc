@@ -136,7 +136,7 @@ export default function HistoryView({ data }: Props) {
             <strong>{matchMeta.get(matchId)?.label ?? matchId}</strong>:{" "}
             {prev && <span className="text-slate-400 line-through">{PREDICT_LABEL[prev] ?? prev}</span>}
             {prev && " → "}
-            <strong className="text-emerald-600 dark:text-emerald-300">
+            <strong className="text-pitch">
               {PREDICT_LABEL[next ?? ""] ?? next ?? "?"}
             </strong>
           </>
@@ -178,7 +178,7 @@ export default function HistoryView({ data }: Props) {
               </span>
             )}
             {prev && " → "}
-            <strong className="text-emerald-600 dark:text-emerald-300">
+            <strong className="text-pitch">
               {next
                 ? `${RESULT_LABEL[next.winner] ?? next.winner} ${next.scoreHome}-${next.scoreAway}`
                 : "?"}
@@ -250,12 +250,12 @@ export default function HistoryView({ data }: Props) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Tìm theo tên, mã trận, hành động…"
-            className="flex-1 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-emerald-500 dark:border-white/15 dark:bg-black/30 dark:text-white dark:placeholder:text-zinc-500 dark:focus:border-emerald-400"
+            className="flex-1 rounded-lg border border-[var(--border-medium)] bg-[var(--bg-input)] px-3 py-1.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--pitch)]"
           />
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value as typeof filter)}
-            className="rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-sm text-slate-900 outline-none focus:border-emerald-500 dark:border-white/15 dark:bg-black/30 dark:text-white"
+            className="rounded-lg border border-[var(--border-medium)] bg-[var(--bg-input)] px-2 py-1.5 text-sm text-[var(--text-primary)] outline-none focus:border-[var(--pitch)]"
           >
             <option value="all">Tất cả</option>
             <option value="player">Người chơi</option>

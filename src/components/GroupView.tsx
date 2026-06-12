@@ -42,7 +42,7 @@ export default function GroupView({
         className="flex w-full items-center justify-between p-4 text-left transition-colors hover:bg-[var(--bg-soft)]"
       >
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-sky-500 text-base font-black text-white shadow-md shadow-emerald-500/20">
+          <div className="brand-grad flex h-11 w-11 items-center justify-center rounded-xl text-base font-black text-white shadow-md shadow-black/10">
             {group.id}
           </div>
           <div>
@@ -191,7 +191,7 @@ function StandingsTable({ group, data }: { group: GroupData; data: AppData }) {
               <tr
                 key={r.team}
                 className={`border-t border-[var(--border-soft)] ${
-                  i < 2 ? "bg-emerald-50/50 dark:bg-emerald-500/5" : ""
+                  i < 2 ? "bg-pitch-soft" : ""
                 }`}
               >
                 <td className="px-3 py-2 text-[var(--text-muted)]">{i + 1}</td>
@@ -200,7 +200,7 @@ function StandingsTable({ group, data }: { group: GroupData; data: AppData }) {
                   <span className="font-medium text-[var(--text-primary)]">{r.team}</span>
                 </td>
                 <td className="px-2 py-2 text-center text-[var(--text-secondary)]">{r.played}</td>
-                <td className="px-2 py-2 text-center text-emerald-600 dark:text-emerald-300 font-semibold">{r.won}</td>
+                <td className="text-pitch px-2 py-2 text-center font-semibold">{r.won}</td>
                 <td className="px-2 py-2 text-center text-[var(--text-secondary)]">{r.drawn}</td>
                 <td className="px-2 py-2 text-center text-rose-500 font-semibold">{r.lost}</td>
                 <td className="px-2 py-2 text-center text-[var(--text-secondary)]">{r.goalsFor}</td>
@@ -208,7 +208,7 @@ function StandingsTable({ group, data }: { group: GroupData; data: AppData }) {
                 <td className="px-2 py-2 text-center text-[var(--text-secondary)]">
                   {r.goalDiff > 0 ? `+${r.goalDiff}` : r.goalDiff}
                 </td>
-                <td className="px-3 py-2 text-center font-black text-emerald-600 dark:text-emerald-300">
+                <td className="text-pitch px-3 py-2 text-center font-black">
                   {r.points}
                 </td>
               </tr>
@@ -268,7 +268,7 @@ function StatsPanel({
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-3xl font-black text-emerald-500 dark:text-emerald-300">
+                <div className="text-pitch text-3xl font-black">
                   {s.totalPoints}
                 </div>
                 <div className="text-[10px] uppercase tracking-wider text-[var(--text-muted)]">
@@ -300,7 +300,7 @@ function MiniStat({
 }) {
   const color =
     accent === "emerald"
-      ? "text-emerald-600 dark:text-emerald-300"
+      ? "text-pitch"
       : accent === "rose"
         ? "text-rose-500"
         : "text-[var(--text-muted)]";

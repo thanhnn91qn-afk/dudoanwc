@@ -33,10 +33,10 @@ export default function LoginScreen({ players, onLogin, onCreate, onReset }: Pro
     <div className="app-bg mx-auto flex min-h-dvh w-full max-w-md flex-col items-center justify-center gap-8 p-6">
       {/* Hero */}
       <div className="animate-entrance animate-entrance-1 text-center">
-        <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-sky-500 text-white shadow-xl shadow-emerald-500/30">
+        <div className="brand-grad mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl text-white shadow-xl shadow-black/15">
           <IconSoccer size={40} />
         </div>
-        <h1 className="bg-gradient-to-r from-emerald-600 to-sky-600 bg-clip-text text-3xl font-black tracking-tight text-transparent dark:from-emerald-400 dark:to-sky-400">
+        <h1 className="brand-text text-3xl font-black tracking-tight">
           Dự đoán World Cup 2026
         </h1>
         <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
@@ -74,7 +74,7 @@ export default function LoginScreen({ players, onLogin, onCreate, onReset }: Pro
                 placeholder="Ví dụ: Minh, Lan, Hoàng..."
                 className={`w-full rounded-xl border-2 bg-[var(--bg-input)] px-4 py-3.5 text-base font-medium text-[var(--text-primary)] placeholder:text-[var(--text-muted)] outline-none transition-all ${
                   isFocused
-                    ? "border-emerald-500 shadow-lg shadow-emerald-500/15"
+                    ? "border-pitch shadow-lg shadow-black/5"
                     : "border-[var(--border-medium)] hover:border-[var(--text-muted)]"
                 }`}
               />
@@ -101,7 +101,7 @@ export default function LoginScreen({ players, onLogin, onCreate, onReset }: Pro
                     key={p.id}
                     type="button"
                     onClick={() => setName(p.name)}
-                    className="flex items-center gap-1 rounded-lg bg-[var(--bg-elevated)] px-2.5 py-1 text-xs font-medium text-[var(--text-secondary)] shadow-sm transition-all hover:scale-105 hover:bg-emerald-50 hover:text-emerald-700 dark:hover:bg-emerald-500/20 dark:hover:text-emerald-300"
+                    className="flex items-center gap-1 rounded-lg bg-[var(--bg-elevated)] px-2.5 py-1 text-xs font-medium text-[var(--text-secondary)] shadow-sm transition-all hover:scale-105 hover:text-pitch"
                   >
                     {p.name}
                   </button>

@@ -136,7 +136,7 @@ function QualifiedSummary({
                 <div
                   key={r.team}
                   className={`flex items-center justify-between py-0.5 ${
-                    i < 2 ? "text-emerald-700 dark:text-emerald-200" : "text-slate-500 dark:text-zinc-400"
+                    i < 2 ? "text-pitch" : "text-[var(--text-muted)]"
                   }`}
                 >
                   <span className="truncate">
@@ -154,11 +154,11 @@ function QualifiedSummary({
     );
   }
   return (
-    <div className="rounded-2xl border border-emerald-300 bg-emerald-50 p-4 text-sm dark:border-emerald-400/30 dark:bg-emerald-400/5">
-      <div className="font-semibold text-emerald-700 dark:text-emerald-200">
-        <IconCheck size={13} className="text-emerald-500" /> Vòng bảng đã hoàn tất · 32 đội vào vòng knockout
+    <div className="bg-pitch-soft border-pitch rounded-2xl border p-4 text-sm">
+      <div className="text-pitch flex items-center gap-1.5 font-semibold">
+        <IconCheck size={13} /> Vòng bảng đã hoàn tất · 32 đội vào vòng knockout
       </div>
-      <div className="mt-1 text-xs text-emerald-700/80 dark:text-emerald-200/80">
+      <div className="mt-1 text-xs text-[var(--text-secondary)]">
         Top 2 mỗi bảng + 8 đội hạng 3 tốt nhất. Bracket bên dưới đã được lấp đầy
         tự động.
       </div>

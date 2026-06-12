@@ -195,7 +195,7 @@ export default function App() {
     return (
       <div className="app-bg flex min-h-dvh items-center justify-center text-[var(--text-muted)]">
         <div className="flex flex-col items-center gap-3">
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-sky-500 text-white">
+          <div className="brand-grad flex h-16 w-16 items-center justify-center rounded-2xl text-white">
             <IconSoccer size={32} />
           </div>
           <div className="text-sm font-medium">Đang kết nối server…</div>
@@ -220,7 +220,7 @@ export default function App() {
     tournament.groups[0];
 
   return (
-    <div className="app-bg min-h-screen text-slate-900 dark:text-white">
+    <div className="app-bg min-h-dvh text-[var(--text-primary)]">
       <Header
         user={currentPlayer.name}
         isAdmin={isAdmin}
@@ -230,23 +230,22 @@ export default function App() {
       />
 
       <main className="mx-auto w-full max-w-5xl space-y-4 px-4 py-6">
-        <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-gradient-to-br dark:from-emerald-500/10 dark:via-sky-500/5 dark:to-indigo-500/10 dark:shadow-none">
-          <div className="text-xs uppercase tracking-widest text-slate-500 dark:text-zinc-400">
+        <div className="card pitch-lines relative p-4">
+          <div className="relative">
+          <div className="text-xs uppercase tracking-widest text-[var(--text-muted)]">
             FIFA World Cup 2026 · {tournament.hosts.join(" · ")}
           </div>
-          <div className="mt-1 text-lg font-semibold">
+          <div className="mt-1 text-lg font-bold text-[var(--text-primary)]">
             {tournament.tournament}
           </div>
-          <div className="mt-1 text-xs text-slate-500 dark:text-zinc-400">
+          <div className="mt-1 text-xs text-[var(--text-secondary)]">
             {tournament.dates.start} → {tournament.dates.end} · {tournament.format.teamsTotal} đội · {tournament.format.groups} bảng ·{" "}
             {tournament.format.advanceRules}
           </div>
-          <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-zinc-500">
+          <div className="mt-2 flex items-center gap-1.5 text-[11px] text-[var(--text-muted)]">
             <span
               className={`inline-block h-2 w-2 rounded-full ${
-                supabase
-                  ? "bg-emerald-500"
-                  : "bg-rose-500"
+                supabase ? "bg-pitch" : "bg-rose-500"
               }`}
             />
             {supabase
@@ -256,7 +255,7 @@ export default function App() {
           {isAdmin && (
             <div className="mt-3 flex flex-wrap items-start justify-between gap-3 rounded-xl border border-amber-300 bg-amber-50 p-3 text-xs text-amber-800 dark:border-amber-300/30 dark:bg-amber-300/10 dark:text-amber-100">
               <div>
-                🛠 Bạn đang ở <strong>chế độ Admin</strong>. Bật để{" "}
+                Bạn đang ở <strong>chế độ Admin</strong>. Bật để{" "}
                 <strong>xác nhận kết quả thắng thua</strong> cho từng trận. Mọi
                 người dùng đều có thể bật chế độ này để tự nhập kết quả thật.
               </div>
@@ -271,7 +270,7 @@ export default function App() {
                 title="Tự động điền kết quả 72 trận vòng bảng (chỉ dùng để demo)"
                 className="shrink-0 rounded-lg bg-amber-400 px-3 py-2 text-sm font-semibold text-amber-950 hover:bg-amber-300"
               >
-                🧪 Tự điền vòng bảng
+                Tự điền vòng bảng
               </button>
               <button
                 onClick={async () => {
@@ -284,10 +283,11 @@ export default function App() {
                 title="Tự động điền kết quả toàn bộ giải (vòng bảng + vòng trong)"
                 className="shrink-0 rounded-lg bg-amber-400 px-3 py-2 text-sm font-semibold text-amber-950 hover:bg-amber-300"
               >
-                🧪 Tự điền cả giải
+                Tự điền cả giải
               </button>
             </div>
           )}
+          </div>
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3">
@@ -318,7 +318,7 @@ export default function App() {
                 active={tab === "history"}
                 onClick={() => setTab("history")}
               >
-                🕓 Lịch sử
+                Lịch sử
               </TabPill>
             )}
           </div>
@@ -328,10 +328,10 @@ export default function App() {
                 <button
                   key={g.id}
                   onClick={() => setActiveGroup(g.id)}
-                  className={`h-9 w-9 rounded-lg text-sm font-bold transition ${
+                  className={`h-9 w-9 rounded-lg text-sm font-bold transition touch-feedback ${
                     activeGroup === g.id
-                      ? "bg-slate-900 text-white dark:bg-white dark:text-black"
-                      : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-white/5 dark:text-zinc-300 dark:hover:bg-white/10"
+                      ? "bg-pitch text-white shadow-md shadow-black/10"
+                      : "bg-[var(--bg-soft)] text-[var(--text-secondary)] hover:bg-[var(--bg-base)]"
                   }`}
                 >
                   {g.id}
@@ -398,10 +398,10 @@ function TabPill({
   return (
     <button
       onClick={onClick}
-      className={`rounded-full px-4 py-1.5 text-sm font-semibold transition ${
+      className={`rounded-full px-4 py-1.5 text-sm font-semibold transition touch-feedback ${
         active
-          ? "bg-emerald-500 text-emerald-950"
-          : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-white/5 dark:text-zinc-300 dark:hover:bg-white/10"
+          ? "bg-pitch text-white shadow-md shadow-black/10"
+          : "bg-[var(--bg-soft)] text-[var(--text-secondary)] hover:bg-[var(--bg-base)]"
       }`}
     >
       {children}
