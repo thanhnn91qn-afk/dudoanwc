@@ -31,7 +31,9 @@ const TEAM_VI = {
   "Ghana": "Ghana",
   "Haiti": "Ha-i-ti",
   "Iran": "Iran",
-  "Iraq": "I-r\u1ecdc",
+  "Iraq": "I-r\u1eafc",
+  // Map cả TV cũ (sai chính tả) sang TV mới để re-apply khi JSON đã có sẵn TV cũ
+  "I-r\u1ecdc": "I-r\u1eafc",
   "Ivory Coast": "B\u1edd Bi\u1ec3n Ng\u00e0",
   "Japan": "Nh\u1eadt B\u1ea3n",
   "Jordan": "Jordan",
@@ -96,6 +98,8 @@ function renameRefs(node) {
 }
 
 // Bước 1: đổi key của `teams` (vd "Brazil" → "Bra-xin")
+//         Nếu key hiện tại đã là tên TV (kết quả của lần chạy trước) mà
+//         giá trị trong TEAM_VI lại khác → dùng tên gốc để tra cứu rồi ghi đè.
 data.teams = renameKeys(data.teams);
 
 // Bước 2: đổi tất cả ref tới tên đội trong groups.matches + knockout.matches
@@ -107,16 +111,38 @@ let renamedGroupTeams = 0;
 for (const g of data.groups) {
   if (Array.isArray(g.teams)) {
     g.teams = g.teams.map((t) => {
-      if (TEAM_VI[t] && TEAM_VI[t] !== t) {
-        renamedGroupTeams += 1;
-        return TEAM_VI[t];
-      }
-      return t;
+      // Tra cả 2 chiều: tên gốc → TV, hoặc TV cũ → TV mới (re-apply)
+      const mapped = TEAM_VI[t] ?? t;
+      if (mapped !== t) renamedGroupTeams += 1;
+      return mapped;
     });
   }
 }
 
+// Bước 4: ghi đè cả 2 chiều cho home/away — quan trọng khi re-apply mapping
+//         (vd "I-rọc" → "I-rắc") mà key trong teams vẫn là TV cũ.
+let reapplied = 0;
+function reapplyRefs(node) {
+  if (!node || typeof node !== "object") return;
+  if (Array.isArray(node)) {
+    for (const it of node) reapplyRefs(it);
+    return;
+  }
+  for (const [k, v] of Object.entries(node)) {
+    if ((k === "home" || k === "away") && typeof v === "string" && TEAM_VI[v]) {
+      if (node[k] !== TEAM_VI[v]) {
+        reapplied += 1;
+        node[k] = TEAM_VI[v];
+      }
+    } else if (typeof v === "object") {
+      reapplyRefs(v);
+    }
+  }
+}
+reapplyRefs(data.groups);
+reapplyRefs(data.knockout);
+
 writeFileSync(jsonPath, JSON.stringify(data, null, 2) + "\n", "utf8");
 console.log(
-  `✓ Đổi xong. ${renamedKeys} key trong teams + ${renamedRefs} reference home/away + ${renamedGroupTeams} tên trong groups[].teams[].`,
+  `✓ Đổi xong. ${renamedKeys} key trong teams + ${renamedRefs} reference home/away + ${renamedGroupTeams} tên trong groups[].teams[] + ${reapplied} ghi đè lại.`,
 );
