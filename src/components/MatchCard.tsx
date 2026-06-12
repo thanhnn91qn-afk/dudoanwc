@@ -50,6 +50,21 @@ const labels: Record<Pick, string> = {
   draw: "Hoà",
 };
 
+/**
+ * Label động theo pick + tên 2 đội thật: hiển thị "Thắng Brazil" thay vì
+ * "Thắng (sân nhà)" để user dễ nhớ mình đã chọn gì khi trận đã bắt đầu.
+ */
+function pickLabel(
+  pick: Pick | undefined,
+  home: string | null | undefined,
+  away: string | null | undefined,
+): string {
+  if (!pick) return "—";
+  if (pick === "home") return home ? `Thắng ${home}` : "Thắng (sân nhà)";
+  if (pick === "away") return away ? `Thắng ${away}` : "Thắng (sân khách)";
+  return "Hoà";
+}
+
 export default function MatchCard({
   match,
   data,
@@ -210,7 +225,7 @@ export default function MatchCard({
               <span className="text-xs text-[var(--text-secondary)]">
                 Đã chọn:{" "}
                 <strong className="text-[var(--text-primary)]">
-                  {labels[myPrediction.pick]}
+                  {pickLabel(myPrediction.pick, match.home, match.away)}
                 </strong>
               </span>
               <button
@@ -232,7 +247,7 @@ export default function MatchCard({
             <IconClock size={12} className="text-amber-500" />
             Đã bắt đầu · Bạn đã chọn:{" "}
             <strong className="text-amber-800 dark:text-white">
-              {labels[myPrediction.pick]}
+              {pickLabel(myPrediction.pick, match.home, match.away)}
             </strong>
           </span>
           <span className="text-[10px] font-semibold uppercase tracking-wide text-amber-600/70 dark:text-amber-300/70">
@@ -256,7 +271,7 @@ export default function MatchCard({
             <IconLock size={11} className="text-slate-400" />
             Đã chốt · Bạn đã chọn:{" "}
             <strong className="text-[var(--text-primary)]">
-              {labels[myPrediction.pick]}
+              {pickLabel(myPrediction.pick, match.home, match.away)}
             </strong>
           </span>
           {myPickCorrect ? (
