@@ -9,19 +9,20 @@ import { IconCheck, IconX, IconUsers, IconTrash } from "./Icons";
 interface Props {
   data: AppData;
   actorName: string | null;
-  onPlayerDeleted: (playerId: string) => void;
+  onRefresh: () => Promise<void> | void;
   currentPlayerId: string | null;
 }
 
 export default function PlayerManager({
   data,
   actorName,
-  onPlayerDeleted,
+  onRefresh,
   currentPlayerId,
 }: Props) {
   const [filter, setFilter] = useState("");
   const [busyId, setBusyId] = useState<string | null>(null);
   const [confirmId, setConfirmId] = useState<string | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
   const [feedback, setFeedback] = useState<
     { type: "ok" | "err"; msg: string } | null
   >(null);
@@ -51,6 +52,21 @@ export default function PlayerManager({
     return data.players.filter((p) => p.name.toLowerCase().includes(q));
   }, [data.players, filter]);
 
+  const handleRefresh = async () => {
+    setRefreshing(true);
+    try {
+      await onRefresh();
+      setFeedback({ type: "ok", msg: "Đã đồng bộ từ server." });
+    } catch (e) {
+      setFeedback({
+        type: "err",
+        msg: `Làm mới thất bại: ${(e as Error).message ?? "lỗi không rõ"}`,
+      });
+    } finally {
+      setRefreshing(false);
+    }
+  };
+
   const handleDelete = async (player: Player) => {
     if (player.id === currentPlayerId) {
       setFeedback({
@@ -74,7 +90,9 @@ export default function PlayerManager({
     setBusyId(player.id);
     try {
       const { predictionsDeleted } = await deletePlayerRemote(actorName, player.id);
-      onPlayerDeleted(player.id);
+      // Luôn refetch từ server thay vì filter local — vì realtime đôi lúc
+      // không bắn đủ nhanh với DELETE, dễ khiến danh sách vẫn hiển thị cũ.
+      await onRefresh();
       setFeedback({
         type: "ok",
         msg: `Đã xoá "${player.name}"${predictionsDeleted > 0 ? ` và ${predictionsDeleted} dự đoán` : ""}.`,
@@ -94,9 +112,20 @@ export default function PlayerManager({
 
   if (data.players.length === 0) {
     return (
-      <div className="card p-8 text-center text-sm text-[var(--text-muted)]">
-        <IconUsers size={28} className="mx-auto mb-3 opacity-40" />
-        Chưa có người chơi nào trên server.
+      <div className="space-y-3">
+        <div className="flex justify-end">
+          <button
+            onClick={handleRefresh}
+            disabled={refreshing}
+            className="rounded-lg border border-[var(--border-medium)] bg-[var(--bg-elevated)] px-3 py-1.5 text-[11px] font-semibold text-[var(--text-secondary)] hover:bg-[var(--bg-soft)] disabled:opacity-50"
+          >
+            {refreshing ? "Đang đồng bộ…" : "↻ Làm mới từ server"}
+          </button>
+        </div>
+        <div className="card p-8 text-center text-sm text-[var(--text-muted)]">
+          <IconUsers size={28} className="mx-auto mb-3 opacity-40" />
+          Chưa có người chơi nào trên server.
+        </div>
       </div>
     );
   }
@@ -124,6 +153,14 @@ export default function PlayerManager({
             <div className="rounded-lg bg-[var(--bg-soft)] px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">
               {filtered.length}/{data.players.length}
             </div>
+            <button
+              onClick={handleRefresh}
+              disabled={refreshing}
+              title="Kéo lại danh sách người chơi từ server"
+              className="rounded-lg border border-[var(--border-medium)] bg-[var(--bg-elevated)] px-3 py-1.5 text-[11px] font-semibold text-[var(--text-secondary)] transition-colors hover:bg-[var(--bg-soft)] disabled:opacity-50"
+            >
+              {refreshing ? "Đang đồng bộ…" : "↻ Làm mới"}
+            </button>
           </div>
         </div>
 

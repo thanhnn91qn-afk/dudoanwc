@@ -65,6 +65,16 @@ export default function App() {
     return data.players.find((p) => p.id === data.currentPlayerId) ?? null;
   }, [data]);
 
+  const refreshData = useCallback(async () => {
+    try {
+      const fresh = await fetchData();
+      setData(fresh);
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error("[supabase] refresh failed", e);
+    }
+  }, []);
+
   const handleLoginOrCreate = useCallback(
     async (name: string) => {
       try {
@@ -224,10 +234,7 @@ export default function App() {
             ? async (playerId) => {
                 try {
                   await deletePlayerRemote("admin", playerId);
-                  setData((d) => ({
-                    ...d,
-                    players: d.players.filter((p) => p.id !== playerId),
-                  }));
+                  await refreshData();
                 } catch (e) {
                   console.error("[login] delete failed", e);
                   alert(`Xoá thất bại: ${(e as Error).message ?? "lỗi không rõ"}`);
@@ -421,12 +428,7 @@ export default function App() {
             data={data}
             actorName={currentPlayer.name}
             currentPlayerId={currentPlayer.id}
-            onPlayerDeleted={(playerId) => {
-              setData((d) => ({
-                ...d,
-                players: d.players.filter((p) => p.id !== playerId),
-              }));
-            }}
+            onRefresh={refreshData}
           />
         )}
 
