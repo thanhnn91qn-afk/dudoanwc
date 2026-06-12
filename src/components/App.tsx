@@ -16,6 +16,7 @@ import type { AppData, MatchPrediction, MatchResult, Player } from "@/lib/types"
 import { tournament } from "@/data/tournament";
 import { supabase } from "@/lib/supabase";
 import { IconSoccer } from "./Icons";
+import { useThemeTokens } from "@/lib/useThemeTokens";
 import LoginScreen from "./LoginScreen";
 import Header from "./Header";
 import GroupView from "./GroupView";
@@ -23,6 +24,7 @@ import Leaderboard from "./Leaderboard";
 import KnockoutView from "./KnockoutView";
 import ScheduleView from "./ScheduleView";
 import HistoryView from "./HistoryView";
+import ThemeSettings from "./ThemeSettings";
 
 type Tab = "schedule" | "groups" | "knockout" | "leaderboard" | "history";
 
@@ -32,6 +34,9 @@ export default function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [tab, setTab] = useState<Tab>("schedule");
   const [activeGroup, setActiveGroup] = useState<string>("A");
+  const [showThemeSettings, setShowThemeSettings] = useState(false);
+  // Mount theme tokens hook (manages localStorage + CSS variable application)
+  useThemeTokens();
 
   useEffect(() => {
     let unsub: (() => void) | undefined;
@@ -285,6 +290,13 @@ export default function App() {
               >
                 Tự điền cả giải
               </button>
+              <button
+                onClick={() => setShowThemeSettings(true)}
+                title="Chỉnh màu giao diện (preset hoặc tuỳ chỉnh)"
+                className="shrink-0 rounded-lg bg-amber-400 px-3 py-2 text-sm font-semibold text-amber-950 hover:bg-amber-300"
+              >
+                Tuỳ chỉnh màu
+              </button>
             </div>
           )}
           </div>
@@ -382,6 +394,8 @@ export default function App() {
           {new Date().getFullYear()}
         </footer>
       </main>
+
+      {showThemeSettings && <ThemeSettings onClose={() => setShowThemeSettings(false)} />}
     </div>
   );
 }
