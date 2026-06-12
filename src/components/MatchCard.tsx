@@ -51,7 +51,7 @@ const labels: Record<Pick, string> = {
 };
 
 /**
- * Label động theo pick + tên 2 đội thật: hiển thị "Thắng Brazil" thay vì
+ * Label động theo pick + tên 2 đội thật: hiển thị "Brazil Thắng" thay vì
  * "Thắng (sân nhà)" để user dễ nhớ mình đã chọn gì khi trận đã bắt đầu.
  */
 function pickLabel(
@@ -60,8 +60,8 @@ function pickLabel(
   away: string | null | undefined,
 ): string {
   if (!pick) return "—";
-  if (pick === "home") return home ? `Thắng ${home}` : "Thắng (sân nhà)";
-  if (pick === "away") return away ? `Thắng ${away}` : "Thắng (sân khách)";
+  if (pick === "home") return home ? `${home} Thắng` : "Thắng (sân nhà)";
+  if (pick === "away") return away ? `${away} Thắng` : "Thắng (sân khách)";
   return "Hoà";
 }
 
