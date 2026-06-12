@@ -19,32 +19,32 @@
     "advanceRules": "Top 2 mỗi bảng + 8 đội hạng 3 tốt nhất → Vòng 32"
   },
   "teams": {
-    "Mexico": {
+    "Mê-hi-cô": {
       "flag": "🇲🇽",
       "confederation": "CONCACAF",
       "group": "A"
     },
-    "South Africa": {
+    "Nam Phi": {
       "flag": "🇿🇦",
       "confederation": "CAF",
       "group": "A"
     },
-    "Korea Republic": {
+    "Hàn Quốc": {
       "flag": "🇰🇷",
       "confederation": "AFC",
       "group": "A"
     },
-    "Czechia": {
+    "Séc": {
       "flag": "🇨🇿",
       "confederation": "UEFA",
       "group": "A"
     },
-    "Canada": {
+    "Ca-na-đa": {
       "flag": "🇨🇦",
       "confederation": "CONCACAF",
       "group": "B"
     },
-    "Bosnia & Herzegovina": {
+    "Bò-xnơ-na Héc-xê-gô-vi-na": {
       "flag": "🇧🇦",
       "confederation": "UEFA",
       "group": "B"
@@ -54,22 +54,22 @@
       "confederation": "AFC",
       "group": "B"
     },
-    "Switzerland": {
+    "Thụy Sĩ": {
       "flag": "🇨🇭",
       "confederation": "UEFA",
       "group": "B"
     },
-    "Brazil": {
+    "Bra-xin": {
       "flag": "🇧🇷",
       "confederation": "CONMEBOL",
       "group": "C"
     },
-    "Morocco": {
+    "Ma-rốc": {
       "flag": "🇲🇦",
       "confederation": "CAF",
       "group": "C"
     },
-    "Haiti": {
+    "Ha-i-ti": {
       "flag": "🇭🇹",
       "confederation": "CONCACAF",
       "group": "C"
@@ -79,27 +79,27 @@
       "confederation": "UEFA",
       "group": "C"
     },
-    "United States": {
+    "Mỹ": {
       "flag": "🇺🇸",
       "confederation": "CONCACAF",
       "group": "D"
     },
-    "Paraguay": {
+    "Pa-ra-goay": {
       "flag": "🇵🇾",
       "confederation": "CONMEBOL",
       "group": "D"
     },
-    "Australia": {
+    "Úc": {
       "flag": "🇦🇺",
       "confederation": "AFC",
       "group": "D"
     },
-    "Türkiye": {
+    "Thổ Nhĩ Kỳ": {
       "flag": "🇹🇷",
       "confederation": "UEFA",
       "group": "D"
     },
-    "Germany": {
+    "Đức": {
       "flag": "🇩🇪",
       "confederation": "UEFA",
       "group": "E"
@@ -109,7 +109,7 @@
       "confederation": "CONCACAF",
       "group": "E"
     },
-    "Ivory Coast": {
+    "Bờ Biển Ngà": {
       "flag": "🇨🇮",
       "confederation": "CAF",
       "group": "E"
@@ -119,32 +119,32 @@
       "confederation": "CONMEBOL",
       "group": "E"
     },
-    "Netherlands": {
+    "Hà Lan": {
       "flag": "🇳🇱",
       "confederation": "UEFA",
       "group": "F"
     },
-    "Japan": {
+    "Nhật Bản": {
       "flag": "🇯🇵",
       "confederation": "AFC",
       "group": "F"
     },
-    "Sweden": {
+    "Thụy Điển": {
       "flag": "🇸🇪",
       "confederation": "UEFA",
       "group": "F"
     },
-    "Tunisia": {
+    "Tuy-ni-di": {
       "flag": "🇹🇳",
       "confederation": "CAF",
       "group": "F"
     },
-    "Belgium": {
+    "Bỉ": {
       "flag": "🇧🇪",
       "confederation": "UEFA",
       "group": "G"
     },
-    "Egypt": {
+    "Ai Cập": {
       "flag": "🇪🇬",
       "confederation": "CAF",
       "group": "G"
@@ -159,47 +159,47 @@
       "confederation": "OFC",
       "group": "G"
     },
-    "Spain": {
+    "Tây Ban Nha": {
       "flag": "🇪🇸",
       "confederation": "UEFA",
       "group": "H"
     },
-    "Cape Verde": {
+    "Cáp-ve": {
       "flag": "🇨🇻",
       "confederation": "CAF",
       "group": "H"
     },
-    "Saudi Arabia": {
+    "Ả-rập Xê-út": {
       "flag": "🇸🇦",
       "confederation": "AFC",
       "group": "H"
     },
-    "Uruguay": {
+    "U-ru-goay": {
       "flag": "🇺🇾",
       "confederation": "CONMEBOL",
       "group": "H"
     },
-    "France": {
+    "Pháp": {
       "flag": "🇫🇷",
       "confederation": "UEFA",
       "group": "I"
     },
-    "Senegal": {
+    "Sé-né-gan": {
       "flag": "🇸🇳",
       "confederation": "CAF",
       "group": "I"
     },
-    "Iraq": {
+    "I-rọc": {
       "flag": "🇮🇶",
       "confederation": "AFC",
       "group": "I"
     },
-    "Norway": {
+    "Na Uy": {
       "flag": "🇳🇴",
       "confederation": "UEFA",
       "group": "I"
     },
-    "Argentina": {
+    "Ác-hen-ti-na": {
       "flag": "🇦🇷",
       "confederation": "CONMEBOL",
       "group": "J"
@@ -209,7 +209,7 @@
       "confederation": "CAF",
       "group": "J"
     },
-    "Austria": {
+    "Áo": {
       "flag": "🇦🇹",
       "confederation": "UEFA",
       "group": "J"
@@ -219,32 +219,32 @@
       "confederation": "AFC",
       "group": "J"
     },
-    "Portugal": {
+    "Bồ Đào Nha": {
       "flag": "🇵🇹",
       "confederation": "UEFA",
       "group": "K"
     },
-    "DR Congo": {
+    "Công-gô": {
       "flag": "🇨🇩",
       "confederation": "CAF",
       "group": "K"
     },
-    "Uzbekistan": {
+    "U-dô-bê-ki-xtan": {
       "flag": "🇺🇿",
       "confederation": "AFC",
       "group": "K"
     },
-    "Colombia": {
+    "Cô-lôm-bi-a": {
       "flag": "🇨🇴",
       "confederation": "CONMEBOL",
       "group": "K"
     },
-    "England": {
+    "Anh": {
       "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "confederation": "UEFA",
       "group": "L"
     },
-    "Croatia": {
+    "Crô-a-ti-a": {
       "flag": "🇭🇷",
       "confederation": "UEFA",
       "group": "L"
@@ -254,7 +254,7 @@
       "confederation": "CAF",
       "group": "L"
     },
-    "Panama": {
+    "Pa-na-ma": {
       "flag": "🇵🇦",
       "confederation": "CONCACAF",
       "group": "L"
@@ -274,8 +274,8 @@
           "id": "A1",
           "matchday": 1,
           "kickoffVN": "2026-06-12T02:00:00+07:00",
-          "home": "Mexico",
-          "away": "South Africa",
+          "home": "Mê-hi-cô",
+          "away": "Nam Phi",
           "venue": "Estadio Azteca",
           "city": "Mexico City, Mexico",
           "scoreHome": null,
@@ -286,8 +286,8 @@
           "id": "A2",
           "matchday": 1,
           "kickoffVN": "2026-06-12T09:00:00+07:00",
-          "home": "Korea Republic",
-          "away": "Czechia",
+          "home": "Hàn Quốc",
+          "away": "Séc",
           "venue": "Estadio Akron",
           "city": "Guadalajara, Mexico",
           "scoreHome": null,
@@ -298,8 +298,8 @@
           "id": "A3",
           "matchday": 2,
           "kickoffVN": "2026-06-18T23:00:00+07:00",
-          "home": "Czechia",
-          "away": "South Africa",
+          "home": "Séc",
+          "away": "Nam Phi",
           "venue": "Mercedes-Benz Stadium",
           "city": "Atlanta, USA",
           "scoreHome": null,
@@ -310,8 +310,8 @@
           "id": "A4",
           "matchday": 2,
           "kickoffVN": "2026-06-19T08:00:00+07:00",
-          "home": "Mexico",
-          "away": "Korea Republic",
+          "home": "Mê-hi-cô",
+          "away": "Hàn Quốc",
           "venue": "Estadio Akron",
           "city": "Guadalajara, Mexico",
           "scoreHome": null,
@@ -322,8 +322,8 @@
           "id": "A5",
           "matchday": 3,
           "kickoffVN": "2026-06-25T08:00:00+07:00",
-          "home": "South Africa",
-          "away": "Korea Republic",
+          "home": "Nam Phi",
+          "away": "Hàn Quốc",
           "venue": "Estadio BBVA",
           "city": "Monterrey, Mexico",
           "scoreHome": null,
@@ -334,8 +334,8 @@
           "id": "A6",
           "matchday": 3,
           "kickoffVN": "2026-06-25T08:00:00+07:00",
-          "home": "Czechia",
-          "away": "Mexico",
+          "home": "Séc",
+          "away": "Mê-hi-cô",
           "venue": "Estadio Azteca",
           "city": "Mexico City, Mexico",
           "scoreHome": null,
@@ -399,8 +399,8 @@
           "id": "B1",
           "matchday": 1,
           "kickoffVN": "2026-06-13T02:00:00+07:00",
-          "home": "Canada",
-          "away": "Bosnia & Herzegovina",
+          "home": "Ca-na-đa",
+          "away": "Bò-xnơ-na Héc-xê-gô-vi-na",
           "venue": "BMO Field",
           "city": "Toronto, Canada",
           "scoreHome": null,
@@ -412,7 +412,7 @@
           "matchday": 1,
           "kickoffVN": "2026-06-14T02:00:00+07:00",
           "home": "Qatar",
-          "away": "Switzerland",
+          "away": "Thụy Sĩ",
           "venue": "Levi's Stadium",
           "city": "Santa Clara, USA",
           "scoreHome": null,
@@ -423,8 +423,8 @@
           "id": "B3",
           "matchday": 2,
           "kickoffVN": "2026-06-19T02:00:00+07:00",
-          "home": "Switzerland",
-          "away": "Bosnia & Herzegovina",
+          "home": "Thụy Sĩ",
+          "away": "Bò-xnơ-na Héc-xê-gô-vi-na",
           "venue": "SoFi Stadium",
           "city": "Inglewood, USA",
           "scoreHome": null,
@@ -435,7 +435,7 @@
           "id": "B4",
           "matchday": 2,
           "kickoffVN": "2026-06-19T05:00:00+07:00",
-          "home": "Canada",
+          "home": "Ca-na-đa",
           "away": "Qatar",
           "venue": "BC Place",
           "city": "Vancouver, Canada",
@@ -447,8 +447,8 @@
           "id": "B5",
           "matchday": 3,
           "kickoffVN": "2026-06-25T02:00:00+07:00",
-          "home": "Switzerland",
-          "away": "Canada",
+          "home": "Thụy Sĩ",
+          "away": "Ca-na-đa",
           "venue": "BC Place",
           "city": "Vancouver, Canada",
           "scoreHome": null,
@@ -459,7 +459,7 @@
           "id": "B6",
           "matchday": 3,
           "kickoffVN": "2026-06-25T02:00:00+07:00",
-          "home": "Bosnia & Herzegovina",
+          "home": "Bò-xnơ-na Héc-xê-gô-vi-na",
           "away": "Qatar",
           "venue": "Lumen Field",
           "city": "Seattle, USA",
@@ -524,8 +524,8 @@
           "id": "C1",
           "matchday": 1,
           "kickoffVN": "2026-06-14T05:00:00+07:00",
-          "home": "Brazil",
-          "away": "Morocco",
+          "home": "Bra-xin",
+          "away": "Ma-rốc",
           "venue": "MetLife Stadium",
           "city": "East Rutherford, USA",
           "scoreHome": null,
@@ -536,7 +536,7 @@
           "id": "C2",
           "matchday": 1,
           "kickoffVN": "2026-06-14T08:00:00+07:00",
-          "home": "Haiti",
+          "home": "Ha-i-ti",
           "away": "Scotland",
           "venue": "Gillette Stadium",
           "city": "Foxboro, USA",
@@ -549,7 +549,7 @@
           "matchday": 2,
           "kickoffVN": "2026-06-20T05:00:00+07:00",
           "home": "Scotland",
-          "away": "Morocco",
+          "away": "Ma-rốc",
           "venue": "Gillette Stadium",
           "city": "Foxboro, USA",
           "scoreHome": null,
@@ -560,8 +560,8 @@
           "id": "C4",
           "matchday": 2,
           "kickoffVN": "2026-06-20T07:30:00+07:00",
-          "home": "Brazil",
-          "away": "Haiti",
+          "home": "Bra-xin",
+          "away": "Ha-i-ti",
           "venue": "Lincoln Financial Field",
           "city": "Philadelphia, USA",
           "scoreHome": null,
@@ -573,7 +573,7 @@
           "matchday": 3,
           "kickoffVN": "2026-06-25T05:00:00+07:00",
           "home": "Scotland",
-          "away": "Brazil",
+          "away": "Bra-xin",
           "venue": "Hard Rock Stadium",
           "city": "Miami, USA",
           "scoreHome": null,
@@ -584,8 +584,8 @@
           "id": "C6",
           "matchday": 3,
           "kickoffVN": "2026-06-25T05:00:00+07:00",
-          "home": "Morocco",
-          "away": "Haiti",
+          "home": "Ma-rốc",
+          "away": "Ha-i-ti",
           "venue": "Mercedes-Benz Stadium",
           "city": "Atlanta, USA",
           "scoreHome": null,
@@ -649,8 +649,8 @@
           "id": "D1",
           "matchday": 1,
           "kickoffVN": "2026-06-13T08:00:00+07:00",
-          "home": "United States",
-          "away": "Paraguay",
+          "home": "Mỹ",
+          "away": "Pa-ra-goay",
           "venue": "SoFi Stadium",
           "city": "Inglewood, USA",
           "scoreHome": null,
@@ -661,8 +661,8 @@
           "id": "D2",
           "matchday": 1,
           "kickoffVN": "2026-06-14T23:00:00+07:00",
-          "home": "Australia",
-          "away": "Türkiye",
+          "home": "Úc",
+          "away": "Thổ Nhĩ Kỳ",
           "venue": "BC Place",
           "city": "Vancouver, Canada",
           "scoreHome": null,
@@ -673,8 +673,8 @@
           "id": "D3",
           "matchday": 2,
           "kickoffVN": "2026-06-20T02:00:00+07:00",
-          "home": "United States",
-          "away": "Australia",
+          "home": "Mỹ",
+          "away": "Úc",
           "venue": "Lumen Field",
           "city": "Seattle, USA",
           "scoreHome": null,
@@ -685,8 +685,8 @@
           "id": "D4",
           "matchday": 2,
           "kickoffVN": "2026-06-20T10:00:00+07:00",
-          "home": "Türkiye",
-          "away": "Paraguay",
+          "home": "Thổ Nhĩ Kỳ",
+          "away": "Pa-ra-goay",
           "venue": "Levi's Stadium",
           "city": "Santa Clara, USA",
           "scoreHome": null,
@@ -697,8 +697,8 @@
           "id": "D5",
           "matchday": 3,
           "kickoffVN": "2026-06-26T09:00:00+07:00",
-          "home": "Türkiye",
-          "away": "United States",
+          "home": "Thổ Nhĩ Kỳ",
+          "away": "Mỹ",
           "venue": "SoFi Stadium",
           "city": "Inglewood, USA",
           "scoreHome": null,
@@ -709,8 +709,8 @@
           "id": "D6",
           "matchday": 3,
           "kickoffVN": "2026-06-26T09:00:00+07:00",
-          "home": "Paraguay",
-          "away": "Australia",
+          "home": "Pa-ra-goay",
+          "away": "Úc",
           "venue": "Levi's Stadium",
           "city": "Santa Clara, USA",
           "scoreHome": null,
@@ -774,7 +774,7 @@
           "id": "E1",
           "matchday": 1,
           "kickoffVN": "2026-06-15T00:00:00+07:00",
-          "home": "Germany",
+          "home": "Đức",
           "away": "Curaçao",
           "venue": "NRG Stadium",
           "city": "Houston, USA",
@@ -786,7 +786,7 @@
           "id": "E2",
           "matchday": 1,
           "kickoffVN": "2026-06-15T06:00:00+07:00",
-          "home": "Ivory Coast",
+          "home": "Bờ Biển Ngà",
           "away": "Ecuador",
           "venue": "Lincoln Financial Field",
           "city": "Philadelphia, USA",
@@ -798,8 +798,8 @@
           "id": "E3",
           "matchday": 2,
           "kickoffVN": "2026-06-21T03:00:00+07:00",
-          "home": "Germany",
-          "away": "Ivory Coast",
+          "home": "Đức",
+          "away": "Bờ Biển Ngà",
           "venue": "BMO Field",
           "city": "Toronto, Canada",
           "scoreHome": null,
@@ -823,7 +823,7 @@
           "matchday": 3,
           "kickoffVN": "2026-06-26T03:00:00+07:00",
           "home": "Ecuador",
-          "away": "Germany",
+          "away": "Đức",
           "venue": "MetLife Stadium",
           "city": "East Rutherford, USA",
           "scoreHome": null,
@@ -835,7 +835,7 @@
           "matchday": 3,
           "kickoffVN": "2026-06-26T03:00:00+07:00",
           "home": "Curaçao",
-          "away": "Ivory Coast",
+          "away": "Bờ Biển Ngà",
           "venue": "Lincoln Financial Field",
           "city": "Philadelphia, USA",
           "scoreHome": null,
@@ -899,8 +899,8 @@
           "id": "F1",
           "matchday": 1,
           "kickoffVN": "2026-06-15T03:00:00+07:00",
-          "home": "Netherlands",
-          "away": "Japan",
+          "home": "Hà Lan",
+          "away": "Nhật Bản",
           "venue": "AT&T Stadium",
           "city": "Arlington, USA",
           "scoreHome": null,
@@ -911,8 +911,8 @@
           "id": "F2",
           "matchday": 1,
           "kickoffVN": "2026-06-15T09:00:00+07:00",
-          "home": "Sweden",
-          "away": "Tunisia",
+          "home": "Thụy Điển",
+          "away": "Tuy-ni-di",
           "venue": "Estadio BBVA",
           "city": "Monterrey, Mexico",
           "scoreHome": null,
@@ -923,8 +923,8 @@
           "id": "F3",
           "matchday": 2,
           "kickoffVN": "2026-06-21T00:00:00+07:00",
-          "home": "Netherlands",
-          "away": "Sweden",
+          "home": "Hà Lan",
+          "away": "Thụy Điển",
           "venue": "NRG Stadium",
           "city": "Houston, USA",
           "scoreHome": null,
@@ -935,8 +935,8 @@
           "id": "F4",
           "matchday": 2,
           "kickoffVN": "2026-06-21T11:00:00+07:00",
-          "home": "Tunisia",
-          "away": "Japan",
+          "home": "Tuy-ni-di",
+          "away": "Nhật Bản",
           "venue": "Estadio BBVA",
           "city": "Monterrey, Mexico",
           "scoreHome": null,
@@ -947,8 +947,8 @@
           "id": "F5",
           "matchday": 3,
           "kickoffVN": "2026-06-26T06:00:00+07:00",
-          "home": "Tunisia",
-          "away": "Netherlands",
+          "home": "Tuy-ni-di",
+          "away": "Hà Lan",
           "venue": "Arrowhead Stadium",
           "city": "Kansas City, USA",
           "scoreHome": null,
@@ -959,8 +959,8 @@
           "id": "F6",
           "matchday": 3,
           "kickoffVN": "2026-06-26T06:00:00+07:00",
-          "home": "Japan",
-          "away": "Sweden",
+          "home": "Nhật Bản",
+          "away": "Thụy Điển",
           "venue": "AT&T Stadium",
           "city": "Arlington, USA",
           "scoreHome": null,
@@ -1024,8 +1024,8 @@
           "id": "G1",
           "matchday": 1,
           "kickoffVN": "2026-06-16T02:00:00+07:00",
-          "home": "Belgium",
-          "away": "Egypt",
+          "home": "Bỉ",
+          "away": "Ai Cập",
           "venue": "Lumen Field",
           "city": "Seattle, USA",
           "scoreHome": null,
@@ -1048,7 +1048,7 @@
           "id": "G3",
           "matchday": 2,
           "kickoffVN": "2026-06-22T02:00:00+07:00",
-          "home": "Belgium",
+          "home": "Bỉ",
           "away": "Iran",
           "venue": "SoFi Stadium",
           "city": "Inglewood, USA",
@@ -1061,7 +1061,7 @@
           "matchday": 2,
           "kickoffVN": "2026-06-22T08:00:00+07:00",
           "home": "New Zealand",
-          "away": "Egypt",
+          "away": "Ai Cập",
           "venue": "BC Place",
           "city": "Vancouver, Canada",
           "scoreHome": null,
@@ -1073,7 +1073,7 @@
           "matchday": 3,
           "kickoffVN": "2026-06-27T10:00:00+07:00",
           "home": "New Zealand",
-          "away": "Belgium",
+          "away": "Bỉ",
           "venue": "BC Place",
           "city": "Vancouver, Canada",
           "scoreHome": null,
@@ -1084,7 +1084,7 @@
           "id": "G6",
           "matchday": 3,
           "kickoffVN": "2026-06-27T10:00:00+07:00",
-          "home": "Egypt",
+          "home": "Ai Cập",
           "away": "Iran",
           "venue": "Lumen Field",
           "city": "Seattle, USA",
@@ -1149,8 +1149,8 @@
           "id": "H1",
           "matchday": 1,
           "kickoffVN": "2026-06-15T23:00:00+07:00",
-          "home": "Spain",
-          "away": "Cape Verde",
+          "home": "Tây Ban Nha",
+          "away": "Cáp-ve",
           "venue": "Mercedes-Benz Stadium",
           "city": "Atlanta, USA",
           "scoreHome": null,
@@ -1161,8 +1161,8 @@
           "id": "H2",
           "matchday": 1,
           "kickoffVN": "2026-06-16T05:00:00+07:00",
-          "home": "Saudi Arabia",
-          "away": "Uruguay",
+          "home": "Ả-rập Xê-út",
+          "away": "U-ru-goay",
           "venue": "Hard Rock Stadium",
           "city": "Miami, USA",
           "scoreHome": null,
@@ -1173,8 +1173,8 @@
           "id": "H3",
           "matchday": 2,
           "kickoffVN": "2026-06-21T23:00:00+07:00",
-          "home": "Spain",
-          "away": "Saudi Arabia",
+          "home": "Tây Ban Nha",
+          "away": "Ả-rập Xê-út",
           "venue": "Mercedes-Benz Stadium",
           "city": "Atlanta, USA",
           "scoreHome": null,
@@ -1185,8 +1185,8 @@
           "id": "H4",
           "matchday": 2,
           "kickoffVN": "2026-06-22T05:00:00+07:00",
-          "home": "Uruguay",
-          "away": "Cape Verde",
+          "home": "U-ru-goay",
+          "away": "Cáp-ve",
           "venue": "Hard Rock Stadium",
           "city": "Miami, USA",
           "scoreHome": null,
@@ -1197,8 +1197,8 @@
           "id": "H5",
           "matchday": 3,
           "kickoffVN": "2026-06-27T07:00:00+07:00",
-          "home": "Uruguay",
-          "away": "Spain",
+          "home": "U-ru-goay",
+          "away": "Tây Ban Nha",
           "venue": "Estadio Akron",
           "city": "Guadalajara, Mexico",
           "scoreHome": null,
@@ -1209,8 +1209,8 @@
           "id": "H6",
           "matchday": 3,
           "kickoffVN": "2026-06-27T07:00:00+07:00",
-          "home": "Cape Verde",
-          "away": "Saudi Arabia",
+          "home": "Cáp-ve",
+          "away": "Ả-rập Xê-út",
           "venue": "NRG Stadium",
           "city": "Houston, USA",
           "scoreHome": null,
@@ -1274,8 +1274,8 @@
           "id": "I1",
           "matchday": 1,
           "kickoffVN": "2026-06-17T02:00:00+07:00",
-          "home": "France",
-          "away": "Senegal",
+          "home": "Pháp",
+          "away": "Sé-né-gan",
           "venue": "MetLife Stadium",
           "city": "East Rutherford, USA",
           "scoreHome": null,
@@ -1286,8 +1286,8 @@
           "id": "I2",
           "matchday": 1,
           "kickoffVN": "2026-06-17T05:00:00+07:00",
-          "home": "Iraq",
-          "away": "Norway",
+          "home": "I-rọc",
+          "away": "Na Uy",
           "venue": "Gillette Stadium",
           "city": "Foxboro, USA",
           "scoreHome": null,
@@ -1298,8 +1298,8 @@
           "id": "I3",
           "matchday": 2,
           "kickoffVN": "2026-06-23T04:00:00+07:00",
-          "home": "France",
-          "away": "Iraq",
+          "home": "Pháp",
+          "away": "I-rọc",
           "venue": "Lincoln Financial Field",
           "city": "Philadelphia, USA",
           "scoreHome": null,
@@ -1310,8 +1310,8 @@
           "id": "I4",
           "matchday": 2,
           "kickoffVN": "2026-06-23T07:00:00+07:00",
-          "home": "Norway",
-          "away": "Senegal",
+          "home": "Na Uy",
+          "away": "Sé-né-gan",
           "venue": "MetLife Stadium",
           "city": "East Rutherford, USA",
           "scoreHome": null,
@@ -1322,8 +1322,8 @@
           "id": "I5",
           "matchday": 3,
           "kickoffVN": "2026-06-27T02:00:00+07:00",
-          "home": "Norway",
-          "away": "France",
+          "home": "Na Uy",
+          "away": "Pháp",
           "venue": "Gillette Stadium",
           "city": "Foxboro, USA",
           "scoreHome": null,
@@ -1334,8 +1334,8 @@
           "id": "I6",
           "matchday": 3,
           "kickoffVN": "2026-06-27T02:00:00+07:00",
-          "home": "Senegal",
-          "away": "Iraq",
+          "home": "Sé-né-gan",
+          "away": "I-rọc",
           "venue": "BMO Field",
           "city": "Toronto, Canada",
           "scoreHome": null,
@@ -1399,7 +1399,7 @@
           "id": "J1",
           "matchday": 1,
           "kickoffVN": "2026-06-17T08:00:00+07:00",
-          "home": "Argentina",
+          "home": "Ác-hen-ti-na",
           "away": "Algeria",
           "venue": "Arrowhead Stadium",
           "city": "Kansas City, USA",
@@ -1411,7 +1411,7 @@
           "id": "J2",
           "matchday": 1,
           "kickoffVN": "2026-06-17T11:00:00+07:00",
-          "home": "Austria",
+          "home": "Áo",
           "away": "Jordan",
           "venue": "Levi's Stadium",
           "city": "Santa Clara, USA",
@@ -1423,8 +1423,8 @@
           "id": "J3",
           "matchday": 2,
           "kickoffVN": "2026-06-23T00:00:00+07:00",
-          "home": "Argentina",
-          "away": "Austria",
+          "home": "Ác-hen-ti-na",
+          "away": "Áo",
           "venue": "AT&T Stadium",
           "city": "Arlington, USA",
           "scoreHome": null,
@@ -1448,7 +1448,7 @@
           "matchday": 3,
           "kickoffVN": "2026-06-28T09:00:00+07:00",
           "home": "Jordan",
-          "away": "Argentina",
+          "away": "Ác-hen-ti-na",
           "venue": "AT&T Stadium",
           "city": "Arlington, USA",
           "scoreHome": null,
@@ -1460,7 +1460,7 @@
           "matchday": 3,
           "kickoffVN": "2026-06-28T09:00:00+07:00",
           "home": "Algeria",
-          "away": "Austria",
+          "away": "Áo",
           "venue": "Arrowhead Stadium",
           "city": "Kansas City, USA",
           "scoreHome": null,
@@ -1524,8 +1524,8 @@
           "id": "K1",
           "matchday": 1,
           "kickoffVN": "2026-06-18T00:00:00+07:00",
-          "home": "Portugal",
-          "away": "DR Congo",
+          "home": "Bồ Đào Nha",
+          "away": "Công-gô",
           "venue": "NRG Stadium",
           "city": "Houston, USA",
           "scoreHome": null,
@@ -1536,8 +1536,8 @@
           "id": "K2",
           "matchday": 1,
           "kickoffVN": "2026-06-18T09:00:00+07:00",
-          "home": "Uzbekistan",
-          "away": "Colombia",
+          "home": "U-dô-bê-ki-xtan",
+          "away": "Cô-lôm-bi-a",
           "venue": "Estadio Azteca",
           "city": "Mexico City, Mexico",
           "scoreHome": null,
@@ -1548,8 +1548,8 @@
           "id": "K3",
           "matchday": 2,
           "kickoffVN": "2026-06-24T00:00:00+07:00",
-          "home": "Portugal",
-          "away": "Uzbekistan",
+          "home": "Bồ Đào Nha",
+          "away": "U-dô-bê-ki-xtan",
           "venue": "NRG Stadium",
           "city": "Houston, USA",
           "scoreHome": null,
@@ -1560,8 +1560,8 @@
           "id": "K4",
           "matchday": 2,
           "kickoffVN": "2026-06-24T09:00:00+07:00",
-          "home": "Colombia",
-          "away": "DR Congo",
+          "home": "Cô-lôm-bi-a",
+          "away": "Công-gô",
           "venue": "Estadio Akron",
           "city": "Guadalajara, Mexico",
           "scoreHome": null,
@@ -1572,8 +1572,8 @@
           "id": "K5",
           "matchday": 3,
           "kickoffVN": "2026-06-28T06:30:00+07:00",
-          "home": "Colombia",
-          "away": "Portugal",
+          "home": "Cô-lôm-bi-a",
+          "away": "Bồ Đào Nha",
           "venue": "Hard Rock Stadium",
           "city": "Miami, USA",
           "scoreHome": null,
@@ -1584,8 +1584,8 @@
           "id": "K6",
           "matchday": 3,
           "kickoffVN": "2026-06-28T06:30:00+07:00",
-          "home": "DR Congo",
-          "away": "Uzbekistan",
+          "home": "Công-gô",
+          "away": "U-dô-bê-ki-xtan",
           "venue": "Mercedes-Benz Stadium",
           "city": "Atlanta, USA",
           "scoreHome": null,
@@ -1649,8 +1649,8 @@
           "id": "L1",
           "matchday": 1,
           "kickoffVN": "2026-06-18T03:00:00+07:00",
-          "home": "England",
-          "away": "Croatia",
+          "home": "Anh",
+          "away": "Crô-a-ti-a",
           "venue": "AT&T Stadium",
           "city": "Arlington, USA",
           "scoreHome": null,
@@ -1662,7 +1662,7 @@
           "matchday": 1,
           "kickoffVN": "2026-06-18T06:00:00+07:00",
           "home": "Ghana",
-          "away": "Panama",
+          "away": "Pa-na-ma",
           "venue": "BMO Field",
           "city": "Toronto, Canada",
           "scoreHome": null,
@@ -1673,7 +1673,7 @@
           "id": "L3",
           "matchday": 2,
           "kickoffVN": "2026-06-24T03:00:00+07:00",
-          "home": "England",
+          "home": "Anh",
           "away": "Ghana",
           "venue": "Gillette Stadium",
           "city": "Foxboro, USA",
@@ -1685,8 +1685,8 @@
           "id": "L4",
           "matchday": 2,
           "kickoffVN": "2026-06-24T06:00:00+07:00",
-          "home": "Panama",
-          "away": "Croatia",
+          "home": "Pa-na-ma",
+          "away": "Crô-a-ti-a",
           "venue": "BMO Field",
           "city": "Toronto, Canada",
           "scoreHome": null,
@@ -1697,8 +1697,8 @@
           "id": "L5",
           "matchday": 3,
           "kickoffVN": "2026-06-28T04:00:00+07:00",
-          "home": "Panama",
-          "away": "England",
+          "home": "Pa-na-ma",
+          "away": "Anh",
           "venue": "MetLife Stadium",
           "city": "East Rutherford, USA",
           "scoreHome": null,
@@ -1709,7 +1709,7 @@
           "id": "L6",
           "matchday": 3,
           "kickoffVN": "2026-06-28T04:00:00+07:00",
-          "home": "Croatia",
+          "home": "Crô-a-ti-a",
           "away": "Ghana",
           "venue": "Lincoln Financial Field",
           "city": "Philadelphia, USA",
