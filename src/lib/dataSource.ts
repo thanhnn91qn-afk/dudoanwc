@@ -117,6 +117,7 @@ const ACTION_LABELS: Record<string, string> = {
   "system.reset": "♻️ Xoá toàn bộ dữ liệu",
   "system.fill_groups": "🧪 Tự điền vòng bảng",
   "system.fill_all": "🧪 Tự điền cả giải",
+  "player.delete": "🗑️ Xoá người chơi",
 };
 
 export function labelForAction(action: string): string {
@@ -318,6 +319,68 @@ export async function resetAllRemote(actorName: string | null): Promise<void> {
   await supabase.from("wc_players").delete().neq("id", "");
   setLocalCurrentPlayerId(null);
   void logAudit(actorName, "system.reset", "system", null);
+}
+
+export interface DeletePlayerResult {
+  playerName: string;
+  predictionsDeleted: number;
+}
+
+/**
+ * Xoá 1 người chơi khỏi server (xoá cả dự đoán của họ, log audit).
+ * Nếu người chơi đang là current player trong trình duyệt này thì đăng xuất luôn.
+ */
+export async function deletePlayerRemote(
+  actorName: string | null,
+  playerId: string,
+): Promise<DeletePlayerResult> {
+  if (!supabase) {
+    throw new Error("Chưa cấu hình Supabase");
+  }
+  // 1. Lấy thông tin player trước khi xoá (để log + trả về tên)
+  const { data: playerRow, error: fetchErr } = await supabase
+    .from("wc_players")
+    .select("id, name")
+    .eq("id", playerId)
+    .single();
+  if (fetchErr) throw fetchErr;
+  const playerName: string = playerRow?.name ?? playerId;
+
+  // 2. Đếm số dự đoán sẽ bị xoá (để hiển thị trong confirm + audit)
+  const { count: predsCount, error: countErr } = await supabase
+    .from("wc_predictions")
+    .select("id", { count: "exact", head: true })
+    .eq("player_id", playerId);
+  if (countErr) throw countErr;
+  const predictionsDeleted = predsCount ?? 0;
+
+  // 3. Xoá predictions trước (FK không có cascade để chắc chắn)
+  const { error: predsErr } = await supabase
+    .from("wc_predictions")
+    .delete()
+    .eq("player_id", playerId);
+  if (predsErr) throw predsErr;
+
+  // 4. Xoá player
+  const { error: playerErr } = await supabase
+    .from("wc_players")
+    .delete()
+    .eq("id", playerId);
+  if (playerErr) throw playerErr;
+
+  // 5. Nếu là current player trong trình duyệt này thì logout
+  if (getLocalCurrentPlayerId() === playerId) {
+    setLocalCurrentPlayerId(null);
+  }
+
+  // 6. Log audit
+  void logAudit(actorName, "player.delete", "player", playerId, {
+    playerId,
+    playerName,
+    predictionsDeleted,
+  });
+
+  return { playerName, predictionsDeleted };
 }
 
 export function subscribeRealtime(

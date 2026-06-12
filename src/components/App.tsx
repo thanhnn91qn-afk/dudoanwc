@@ -10,6 +10,7 @@ import {
   setResultRemote,
   subscribeRealtime,
   updatePredictionRemote,
+  deletePlayerRemote,
 } from "@/lib/dataSource";
 import { fillGroupStageDemo, fillKnockoutDemo } from "@/lib/demo";
 import type { AppData, MatchPrediction, MatchResult, Player } from "@/lib/types";
@@ -25,8 +26,9 @@ import KnockoutView from "./KnockoutView";
 import ScheduleView from "./ScheduleView";
 import HistoryView from "./HistoryView";
 import ThemeSettings from "./ThemeSettings";
+import PlayerManager from "./PlayerManager";
 
-type Tab = "schedule" | "groups" | "knockout" | "leaderboard" | "history";
+type Tab = "schedule" | "groups" | "knockout" | "leaderboard" | "history" | "players";
 
 export default function App() {
   const [data, setData] = useState<AppData>(emptyAppData);
@@ -216,6 +218,23 @@ export default function App() {
         onLogin={handleLoginOrCreate}
         onCreate={handleLoginOrCreate}
         onReset={handleReset}
+        isAdmin={isAdmin}
+        onDeletePlayer={
+          isAdmin
+            ? async (playerId) => {
+                try {
+                  await deletePlayerRemote("admin", playerId);
+                  setData((d) => ({
+                    ...d,
+                    players: d.players.filter((p) => p.id !== playerId),
+                  }));
+                } catch (e) {
+                  console.error("[login] delete failed", e);
+                  alert(`Xoá thất bại: ${(e as Error).message ?? "lỗi không rõ"}`);
+                }
+              }
+            : undefined
+        }
       />
     );
   }
@@ -326,12 +345,20 @@ export default function App() {
               Bảng xếp hạng
             </TabPill>
             {isAdmin && (
-              <TabPill
-                active={tab === "history"}
-                onClick={() => setTab("history")}
-              >
-                Lịch sử
-              </TabPill>
+              <>
+                <TabPill
+                  active={tab === "players"}
+                  onClick={() => setTab("players")}
+                >
+                  Người chơi
+                </TabPill>
+                <TabPill
+                  active={tab === "history"}
+                  onClick={() => setTab("history")}
+                >
+                  Lịch sử
+                </TabPill>
+              </>
             )}
           </div>
           {tab === "groups" && (
@@ -388,6 +415,20 @@ export default function App() {
         {tab === "leaderboard" && <Leaderboard data={data} />}
 
         {tab === "history" && isAdmin && <HistoryView data={data} />}
+
+        {tab === "players" && isAdmin && currentPlayer && (
+          <PlayerManager
+            data={data}
+            actorName={currentPlayer.name}
+            currentPlayerId={currentPlayer.id}
+            onPlayerDeleted={(playerId) => {
+              setData((d) => ({
+                ...d,
+                players: d.players.filter((p) => p.id !== playerId),
+              }));
+            }}
+          />
+        )}
 
         <footer className="pb-8 pt-4 text-center text-[11px] text-slate-500 dark:text-zinc-500">
           {tournament.tournament} · Dữ liệu lưu trên Supabase (realtime) · Build{" "}

@@ -2,16 +2,25 @@
 
 import { useEffect, useState } from "react";
 import type { Player } from "@/lib/types";
-import { IconSoccer, IconCloud, IconArrowRight } from "./Icons";
+import { IconSoccer, IconCloud, IconArrowRight, IconX } from "./Icons";
 
 interface Props {
   players: Player[];
   onLogin: (name: string) => void;
   onCreate: (name: string) => void;
   onReset: () => void;
+  isAdmin?: boolean;
+  onDeletePlayer?: (playerId: string) => void;
 }
 
-export default function LoginScreen({ players, onLogin, onCreate, onReset }: Props) {
+export default function LoginScreen({
+  players,
+  onLogin,
+  onCreate,
+  onReset,
+  isAdmin = false,
+  onDeletePlayer,
+}: Props) {
   const [name, setName] = useState("");
   const [showReset, setShowReset] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
@@ -94,17 +103,45 @@ export default function LoginScreen({ players, onLogin, onCreate, onReset }: Pro
             <div className="rounded-xl border border-[var(--border-soft)] bg-[var(--bg-soft)] p-3">
               <div className="text-[11px] uppercase tracking-wider text-[var(--text-muted)] mb-2">
                 Đã có {players.length} người chơi
+                {isAdmin && onDeletePlayer && (
+                  <span className="ml-1.5 normal-case tracking-normal text-rose-500">
+                    · bấm × để xoá
+                  </span>
+                )}
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {players.slice(0, 12).map((p) => (
-                  <button
+                  <div
                     key={p.id}
-                    type="button"
-                    onClick={() => setName(p.name)}
-                    className="flex items-center gap-1 rounded-lg bg-[var(--bg-elevated)] px-2.5 py-1 text-xs font-medium text-[var(--text-secondary)] shadow-sm transition-all hover:scale-105 hover:text-pitch"
+                    className="group flex items-center gap-0.5 rounded-lg bg-[var(--bg-elevated)] shadow-sm transition-all hover:scale-[1.02]"
                   >
-                    {p.name}
-                  </button>
+                    <button
+                      type="button"
+                      onClick={() => setName(p.name)}
+                      className="rounded-lg px-2.5 py-1 text-xs font-medium text-[var(--text-secondary)] hover:text-pitch"
+                    >
+                      {p.name}
+                    </button>
+                    {isAdmin && onDeletePlayer && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (
+                            window.confirm(
+                              `Xoá người chơi "${p.name}" và toàn bộ dự đoán của họ?`,
+                            )
+                          ) {
+                            onDeletePlayer(p.id);
+                          }
+                        }}
+                        className="mr-0.5 flex h-5 w-5 items-center justify-center rounded-md text-[var(--text-muted)] opacity-60 transition-all hover:bg-rose-100 hover:text-rose-600 hover:opacity-100 dark:hover:bg-rose-500/20 dark:hover:text-rose-300"
+                        title={`Xoá "${p.name}"`}
+                      >
+                        <IconX size={10} />
+                      </button>
+                    )}
+                  </div>
                 ))}
                 {players.length > 12 && (
                   <span className="flex items-center px-2 py-1 text-xs text-[var(--text-muted)]">
