@@ -43,32 +43,37 @@ export default function RootLayout({
           id="twemoji-loader"
           src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"
           strategy="afterInteractive"
-          onLoad={() => {
-            // Twemoji được attach vào window ngay khi load xong
-            const w = window as unknown as {
-              twemoji?: {
-                parse: (root: Element, opts: object) => void;
-              };
-            };
-            if (!w.twemoji) return;
-            const opts = {
-              base: "https://cdn.jsdelivr.net/npm/twemoji@14.0.2/assets/",
-              ext: ".svg",
-              className: "twemoji",
-            };
-            const parse = () => {
-              try {
-                w.twemoji!.parse(document.body, opts);
-              } catch {
-                /* ignore */
-              }
-            };
-            parse();
-            // Re-parse khi DOM thay đổi (Next.js SPA route + Supabase realtime)
-            const obs = new MutationObserver(() => parse());
-            obs.observe(document.body, { childList: true, subtree: true });
-          }}
         />
+        <Script id="twemoji-init" strategy="afterInteractive">
+          {`
+            (function() {
+              var TW = 'https://cdn.jsdelivr.net/npm/twemoji@14.0.2/assets/';
+              var opts = { base: TW, ext: '.svg', className: 'twemoji' };
+              function parse() {
+                try {
+                  if (typeof twemoji !== 'undefined' && document.body) {
+                    twemoji.parse(document.body, opts);
+                  }
+                } catch (e) {}
+              }
+              // Chờ twemoji load xong (script trên cùng strategy có thể
+              // chưa sẵn sàng khi script này chạy)
+              function start() {
+                if (typeof twemoji === 'undefined') {
+                  return setTimeout(start, 50);
+                }
+                parse();
+                var obs = new MutationObserver(function() { parse(); });
+                obs.observe(document.body, { childList: true, subtree: true });
+              }
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', start);
+              } else {
+                start();
+              }
+            })();
+          `}
+        </Script>
       </body>
     </html>
   );
