@@ -26,21 +26,21 @@
   --shadow-card-hover: 0 8px 24px rgba(28, 31, 29, 0.09);
   --shadow-card-lg: 0 10px 36px rgba(28, 31, 29, 0.12);
 
-  /* Pitch green — accent only */
-  --pitch: #15803d;
-  --pitch-hover: #166534;
-  --pitch-soft: rgba(21, 128, 61, 0.1);
-  --pitch-line: rgba(21, 128, 61, 0.14);
+  /* Charcoal navy — primary accent, easy on the eyes */
+  --pitch: #334155;
+  --pitch-hover: #1e293b;
+  --pitch-soft: rgba(51, 65, 85, 0.08);
+  --pitch-line: rgba(51, 65, 85, 0.18);
 
-  /* Secondary accents */
-  --accent-sky: #0369a1;
-  --accent-gold: #b45309;
-  --accent-gold-bg: rgba(180, 83, 9, 0.1);
+  /* Secondary accents — muted, never neon */
+  --accent-sky: #475569;
+  --accent-gold: #92400e;
+  --accent-gold-bg: rgba(146, 64, 14, 0.08);
 
   /* Background tint (very subtle, neutral-warm) */
-  --gradient-a: rgba(21, 128, 61, 0.05);
-  --gradient-b: rgba(3, 105, 161, 0.04);
-  --gradient-c: rgba(180, 83, 9, 0.03);
+  --gradient-a: rgba(51, 65, 85, 0.04);
+  --gradient-b: rgba(71, 85, 105, 0.03);
+  --gradient-c: rgba(146, 64, 14, 0.025);
 
   --radius-card: 1.1rem;
   --radius-btn: 0.7rem;
@@ -65,18 +65,18 @@
   --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.45);
   --shadow-card-lg: 0 10px 36px rgba(0, 0, 0, 0.55);
 
-  --pitch: #34d399;
-  --pitch-hover: #6ee7b7;
-  --pitch-soft: rgba(52, 211, 153, 0.12);
-  --pitch-line: rgba(52, 211, 153, 0.14);
+  --pitch: #cbd5e1;
+  --pitch-hover: #e2e8f0;
+  --pitch-soft: rgba(203, 213, 225, 0.08);
+  --pitch-line: rgba(203, 213, 225, 0.18);
 
-  --accent-sky: #38bdf8;
-  --accent-gold: #fbbf24;
-  --accent-gold-bg: rgba(251, 191, 36, 0.14);
+  --accent-sky: #94a3b8;
+  --accent-gold: #f59e0b;
+  --accent-gold-bg: rgba(245, 158, 11, 0.12);
 
-  --gradient-a: rgba(52, 211, 153, 0.07);
-  --gradient-b: rgba(56, 189, 248, 0.05);
-  --gradient-c: rgba(251, 191, 36, 0.04);
+  --gradient-a: rgba(203, 213, 225, 0.05);
+  --gradient-b: rgba(148, 163, 184, 0.04);
+  --gradient-c: rgba(245, 158, 11, 0.04);
 }
 
 @theme inline {
@@ -311,23 +311,23 @@ input[type="number"] {
 .border-pitch { border-color: var(--pitch); }
 .text-gold { color: var(--accent-gold); }
 
-/* Brand gradient — deep grass, easy on the eyes */
+/* Brand gradient — charcoal navy, easy on the eyes */
 .brand-grad {
-  background: linear-gradient(135deg, #166534 0%, #15803d 55%, #0f766e 100%);
+  background: linear-gradient(135deg, #1e293b 0%, #334155 55%, #475569 100%);
 }
 .dark .brand-grad {
-  background: linear-gradient(135deg, #047857 0%, #0d9488 100%);
+  background: linear-gradient(135deg, #1f2937 0%, #334155 100%);
 }
 
 /* Brand text gradient */
 .brand-text {
-  background: linear-gradient(135deg, #166534, #0f766e);
+  background: linear-gradient(135deg, #1e293b, #475569);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 .dark .brand-text {
-  background: linear-gradient(135deg, #34d399, #2dd4bf);
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
