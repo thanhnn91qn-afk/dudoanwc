@@ -150,20 +150,78 @@ function TabButton({
 }
 
 function StandingsTable({ group, data }: { group: GroupData; data: AppData }) {
-  const rows = group.teams
-    .map((team) => {
-      const base = group.standings[team] ?? {
-        played: 0, won: 0, drawn: 0, lost: 0,
-        goalsFor: 0, goalsAgainst: 0, goalDiff: 0, points: 0,
-      };
-      return { team, ...base };
-    })
-    .sort((a, b) => {
-      if (b.points !== a.points) return b.points - a.points;
-      if (b.goalDiff !== a.goalDiff) return b.goalDiff - a.goalDiff;
-      if (b.goalsFor !== a.goalsFor) return b.goalsFor - a.goalsFor;
-      return a.team.localeCompare(b.team);
-    });
+  // Compute live standings from confirmed results (group.standings in JSON is just zeroed stubs)
+  const rows = useMemo(() => {
+    const table: Record<
+      string,
+      {
+        played: number;
+        won: number;
+        drawn: number;
+        lost: number;
+        goalsFor: number;
+        goalsAgainst: number;
+        goalDiff: number;
+        points: number;
+      }
+    > = Object.fromEntries(
+      group.teams.map((t) => [
+        t,
+        {
+          played: 0,
+          won: 0,
+          drawn: 0,
+          lost: 0,
+          goalsFor: 0,
+          goalsAgainst: 0,
+          goalDiff: 0,
+          points: 0,
+        },
+      ]),
+    );
+
+    for (const m of group.matches) {
+      const r = data.results[m.id];
+      if (!r) continue;
+      const home = table[m.home];
+      const away = table[m.away];
+      if (!home || !away) continue;
+      const sh = typeof r.scoreHome === "number" ? r.scoreHome : 0;
+      const sa = typeof r.scoreAway === "number" ? r.scoreAway : 0;
+      home.played += 1;
+      away.played += 1;
+      home.goalsFor += sh;
+      home.goalsAgainst += sa;
+      away.goalsFor += sa;
+      away.goalsAgainst += sh;
+      if (r.winner === "home") {
+        home.won += 1;
+        home.points += 3;
+        away.lost += 1;
+      } else if (r.winner === "away") {
+        away.won += 1;
+        away.points += 3;
+        home.lost += 1;
+      } else if (r.winner === "draw") {
+        home.drawn += 1;
+        away.drawn += 1;
+        home.points += 1;
+        away.points += 1;
+      }
+    }
+    for (const t of group.teams) {
+      table[t].goalDiff = table[t].goalsFor - table[t].goalsAgainst;
+    }
+
+    return group.teams
+      .map((team) => ({ team, ...table[team] }))
+      .sort((a, b) => {
+        if (b.points !== a.points) return b.points - a.points;
+        if (b.goalDiff !== a.goalDiff) return b.goalDiff - a.goalDiff;
+        if (b.goalsFor !== a.goalsFor) return b.goalsFor - a.goalsFor;
+        return a.team.localeCompare(b.team);
+      });
+  }, [group, data]);
 
   const completed = group.matches.filter((m) => data.results[m.id]).length;
 
