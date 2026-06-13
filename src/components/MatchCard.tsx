@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type {
   AppData,
   MatchPrediction,
@@ -111,6 +111,18 @@ export default function MatchCard({
   const now = Date.now();
   const kickedOff = kickoffDate ? kickoffDate.getTime() <= now : false;
   const finalized = !!result;
+
+  // Đếm tổng số người chơi đã đoán đúng trận này (khi đã chốt kết quả).
+  // Bỏ qua prediction không khớp với pick hợp lệ (phòng dữ liệu cũ hỏng).
+  const totalCorrect = useMemo(() => {
+    if (!finalized || !result) return 0;
+    let n = 0;
+    for (const p of data.predictions) {
+      if (p.matchId !== match.id) continue;
+      if (p.pick === result.winner) n += 1;
+    }
+    return n;
+  }, [finalized, result, data.predictions, match.id]);
 
   const cardStyle = result
     ? "result-correct"
@@ -266,7 +278,7 @@ export default function MatchCard({
 
       {/* Finalized (result confirmed) */}
       {!isAdmin && finalized && myPrediction && (
-        <div className="mt-3 flex items-center justify-between rounded-xl border border-[var(--border-soft)] bg-[var(--bg-soft)] px-3 py-2.5 text-xs text-[var(--text-secondary)]">
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 rounded-xl border border-[var(--border-soft)] bg-[var(--bg-soft)] px-3 py-2.5 text-xs text-[var(--text-secondary)]">
           <span className="flex items-center gap-1.5">
             <IconLock size={11} className="text-slate-400" />
             Đã chốt · Bạn đã chọn:{" "}
@@ -274,24 +286,37 @@ export default function MatchCard({
               {pickLabel(myPrediction.pick, match.home, match.away)}
             </strong>
           </span>
-          {myPickCorrect ? (
-            <span className="text-pitch flex items-center gap-1 font-bold">
-              <IconCheck size={12} />
-              Đúng
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-1 text-[var(--text-muted)]">
+              <IconTrophy size={11} />
+              <span className="font-bold text-pitch">{totalCorrect}</span>
+              <span>người đoán đúng</span>
             </span>
-          ) : (
-            <span className="flex items-center gap-1 font-bold text-rose-500">
-              <IconX size={12} />
-              Sai
-            </span>
-          )}
+            {myPickCorrect ? (
+              <span className="text-pitch flex items-center gap-1 font-bold">
+                <IconCheck size={12} />
+                Đúng
+              </span>
+            ) : (
+              <span className="flex items-center gap-1 font-bold text-rose-500">
+                <IconX size={12} />
+                Sai
+              </span>
+            )}
+          </div>
         </div>
       )}
 
       {!isAdmin && finalized && !myPrediction && (
-        <div className="mt-3 flex items-center gap-2 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs text-rose-600 dark:border-rose-500/20 dark:bg-rose-500/5 dark:text-rose-300">
-          <IconInfo size={12} className="shrink-0" />
-          Bạn chưa dự đoán trận này — đã chốt kết quả.
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs text-rose-600 dark:border-rose-500/20 dark:bg-rose-500/5 dark:text-rose-300">
+          <span className="flex items-center gap-2">
+            <IconInfo size={12} className="shrink-0" />
+            Bạn chưa dự đoán trận này — đã chốt kết quả.
+          </span>
+          <span className="flex items-center gap-1 font-bold text-pitch">
+            <IconTrophy size={11} />
+            {totalCorrect} người đoán đúng
+          </span>
         </div>
       )}
 
