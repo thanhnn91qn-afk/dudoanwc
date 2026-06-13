@@ -113,16 +113,16 @@ export default function MatchCard({
   const finalized = !!result;
 
   // Đếm tổng số người chơi đã đoán đúng trận này (khi đã chốt kết quả).
-  // Bỏ qua prediction không khớp với pick hợp lệ (phòng dữ liệu cũ hỏng).
+  // predictions nằm trong từng Player.predictions (key theo matchId).
   const totalCorrect = useMemo(() => {
     if (!finalized || !result) return 0;
     let n = 0;
-    for (const p of data.predictions) {
-      if (p.matchId !== match.id) continue;
-      if (p.pick === result.winner) n += 1;
+    for (const player of data.players) {
+      const pred = player.predictions?.[match.id];
+      if (pred && pred.pick === result.winner) n += 1;
     }
     return n;
-  }, [finalized, result, data.predictions, match.id]);
+  }, [finalized, result, data.players, match.id]);
 
   const cardStyle = result
     ? "result-correct"
