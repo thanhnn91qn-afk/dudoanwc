@@ -10,6 +10,23 @@ interface Props {
 
 export default function Leaderboard({ data }: Props) {
   const board = scoreboard(data);
+  const totals = board.reduce(
+    (acc, s) => {
+      acc.totalPoints += s.totalPoints;
+      acc.picksCorrect += s.picksCorrect;
+      acc.picksWrong += s.picksWrong;
+      acc.picksMissed += s.picksMissed;
+      acc.matchesPredicted += s.matchesPredicted;
+      return acc;
+    },
+    {
+      totalPoints: 0,
+      picksCorrect: 0,
+      picksWrong: 0,
+      picksMissed: 0,
+      matchesPredicted: 0,
+    },
+  );
   if (board.length === 0) {
     return (
       <div className="card p-6 text-center">
@@ -113,6 +130,33 @@ export default function Leaderboard({ data }: Props) {
               </tr>
             ))}
           </tbody>
+          {board.length > 0 && (
+            <tfoot>
+              <tr className="border-t-2 border-[var(--border-soft)] bg-[var(--bg-soft)] text-sm font-bold text-[var(--text-primary)]">
+                <td className="px-4 py-2.5" colSpan={2}>
+                  <span className="flex items-center gap-1.5">
+                    <IconChart size={12} className="text-[var(--text-muted)]" />
+                    Tổng cộng
+                  </span>
+                </td>
+                <td className="px-2 py-2.5 text-center text-pitch">
+                  {totals.totalPoints}
+                </td>
+                <td className="px-2 py-2.5 text-center text-pitch">
+                  {totals.picksCorrect}
+                </td>
+                <td className="px-2 py-2.5 text-center text-rose-500">
+                  {totals.picksWrong}
+                </td>
+                <td className="px-2 py-2.5 text-center text-[var(--text-muted)]">
+                  {totals.picksMissed}
+                </td>
+                <td className="px-3 py-2.5 text-center text-[var(--text-muted)]">
+                  {totals.matchesPredicted}
+                </td>
+              </tr>
+            </tfoot>
+          )}
         </table>
       </div>
     </div>

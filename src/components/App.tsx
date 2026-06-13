@@ -12,7 +12,6 @@ import {
   updatePredictionRemote,
   deletePlayerRemote,
 } from "@/lib/dataSource";
-import { fillGroupStageDemo, fillKnockoutDemo } from "@/lib/demo";
 import type { AppData, MatchPrediction, MatchResult, Player } from "@/lib/types";
 import { tournament } from "@/data/tournament";
 import { supabase } from "@/lib/supabase";
@@ -290,32 +289,6 @@ export default function App() {
                 <strong>xác nhận kết quả thắng thua</strong> cho từng trận. Mọi
                 người dùng đều có thể bật chế độ này để tự nhập kết quả thật.
               </div>
-              <button
-                onClick={async () => {
-                  const next = await fillGroupStageDemo(
-                    data,
-                    currentPlayer.name,
-                  );
-                  setData(next);
-                }}
-                title="Tự động điền kết quả 72 trận vòng bảng (chỉ dùng để demo)"
-                className="shrink-0 rounded-lg bg-amber-400 px-3 py-2 text-sm font-semibold text-amber-950 hover:bg-amber-300"
-              >
-                Tự điền vòng bảng
-              </button>
-              <button
-                onClick={async () => {
-                  const next = await fillKnockoutDemo(
-                    data,
-                    currentPlayer.name,
-                  );
-                  setData(next);
-                }}
-                title="Tự động điền kết quả toàn bộ giải (vòng bảng + vòng trong)"
-                className="shrink-0 rounded-lg bg-amber-400 px-3 py-2 text-sm font-semibold text-amber-950 hover:bg-amber-300"
-              >
-                Tự điền cả giải
-              </button>
               <button
                 onClick={() => setShowThemeSettings(true)}
                 title="Chỉnh màu giao diện (preset hoặc tuỳ chỉnh)"

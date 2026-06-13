@@ -115,8 +115,6 @@ const ACTION_LABELS: Record<string, string> = {
   "result.update": "✏️ Sửa kết quả",
   "result.delete": "🗑️ Huỷ kết quả",
   "system.reset": "♻️ Xoá toàn bộ dữ liệu",
-  "system.fill_groups": "🧪 Tự điền vòng bảng",
-  "system.fill_all": "🧪 Tự điền cả giải",
   "player.delete": "🗑️ Xoá người chơi",
 };
 
