@@ -48,6 +48,41 @@ function vnDate(d: Date): string {
   });
 }
 
+/**
+ * Ngày mặc định nên chọn khi mở tab "Theo ngày":
+ *  - nếu hôm nay (giờ VN) có trận → chọn hôm nay
+ *  - nếu giải chưa bắt đầu → chọn ngày khai mạc
+ *  - nếu giải đã kết thúc → chọn ngày chung kết
+ *  - nếu hôm nay là ngày nghỉ giữa giải → chọn ngày có trận
+ *    gần hôm nay nhất (ưu tiên ngày trong tương lai nếu cách
+ *    đều, vì người dùng thường muốn xem trận sắp tới)
+ */
+function pickDefaultDate(sortedDates: string[]): string {
+  if (sortedDates.length === 0) return "";
+  // Lấy "hôm nay" theo giờ Việt Nam (UTC+7), không phải giờ máy
+  const now = new Date();
+  const utcMs = now.getTime() + now.getTimezoneOffset() * 60_000;
+  const vnMs = utcMs + 7 * 60 * 60_000;
+  const todayVN = ymd(new Date(vnMs));
+  if (sortedDates.includes(todayVN)) return todayVN;
+  if (todayVN < sortedDates[0]) return sortedDates[0];
+  if (todayVN > sortedDates[sortedDates.length - 1])
+    return sortedDates[sortedDates.length - 1];
+  // Ngày nghỉ giữa giải: tìm ngày gần nhất
+  let bestDate = sortedDates[0];
+  let bestDiff = Math.abs(
+    new Date(todayVN).getTime() - new Date(bestDate).getTime(),
+  );
+  for (const d of sortedDates) {
+    const diff = Math.abs(new Date(todayVN).getTime() - new Date(d).getTime());
+    if (diff < bestDiff) {
+      bestDate = d;
+      bestDiff = diff;
+    }
+  }
+  return bestDate;
+}
+
 export default function ScheduleView({
   data,
   currentPlayer,
@@ -87,7 +122,9 @@ export default function ScheduleView({
     return Array.from(set).sort();
   }, [allMatches]);
 
-  const [activeDate, setActiveDate] = useState<string>(() => allDates[0] ?? "");
+  const [activeDate, setActiveDate] = useState<string>(() =>
+    pickDefaultDate(allDates),
+  );
 
   // Các trận trong ngày đang chọn + ngày hôm sau
   const visibleMatches = useMemo(() => {
