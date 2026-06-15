@@ -159,6 +159,12 @@ export default function Leaderboard({ data }: Props) {
           )}
         </table>
       </div>
+      {board.length > 0 && (
+        <div className="border-t border-[var(--border-soft)] bg-[var(--bg-soft)]/40 px-4 py-2 text-[11px] text-[var(--text-muted)]">
+          <span className="font-semibold">Bỏ</span> = số trận đã chốt kết quả
+          mà chưa vote ({Object.keys(data.results).length} trận hiện có kết quả).
+        </div>
+      )}
     </div>
   );
 }
