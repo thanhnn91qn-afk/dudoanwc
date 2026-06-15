@@ -190,6 +190,17 @@ export default function App() {
       } catch (e) {
         // eslint-disable-next-line no-console
         console.error("[supabase] setResult failed", e);
+      } finally {
+        // Re-fetch từ server để đảm bảo state khớp DB (đặc biệt với huỷ kết quả:
+        // nếu RLS chặn DELETE thì row vẫn còn nhưng optimistic đã xoá → phải
+        // đọc lại). Realtime có thể chưa bắn kịp nên refetch chủ động là an toàn nhất.
+        try {
+          const fresh = await fetchData();
+          setData(fresh);
+        } catch (e) {
+          // eslint-disable-next-line no-console
+          console.error("[supabase] post-result refresh failed", e);
+        }
       }
     },
     [currentPlayer, data.results],
