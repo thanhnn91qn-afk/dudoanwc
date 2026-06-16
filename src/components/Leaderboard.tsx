@@ -12,7 +12,7 @@ export default function Leaderboard({ data }: Props) {
   const board = scoreboard(data);
   const totals = board.reduce(
     (acc, s) => {
-      acc.totalPoints += s.totalPoints;
+      acc.matchesScored += s.matchesScored;
       acc.picksCorrect += s.picksCorrect;
       acc.picksWrong += s.picksWrong;
       acc.picksMissed += s.picksMissed;
@@ -20,7 +20,7 @@ export default function Leaderboard({ data }: Props) {
       return acc;
     },
     {
-      totalPoints: 0,
+      matchesScored: 0,
       picksCorrect: 0,
       picksWrong: 0,
       picksMissed: 0,
@@ -54,7 +54,7 @@ export default function Leaderboard({ data }: Props) {
             <tr>
               <th className="px-4 py-2.5 text-left">#</th>
               <th className="px-3 py-2.5 text-left">Người chơi</th>
-              <th className="px-2 py-2.5 text-center">Tổng điểm</th>
+              <th className="px-2 py-2.5 text-center">Tổng trận đã chốt</th>
               <th className="px-2 py-2.5 text-center">
                 <span className="flex items-center justify-center gap-1">
                   <IconCheck size={10} className="text-pitch" /> Đúng
@@ -112,7 +112,7 @@ export default function Leaderboard({ data }: Props) {
                 </td>
                 <td className="px-2 py-2.5 text-center">
                   <span className="text-pitch text-xl font-black">
-                    {s.totalPoints}
+                    {s.matchesScored}
                   </span>
                 </td>
                 <td className="px-2 py-2.5 text-center">
@@ -140,7 +140,7 @@ export default function Leaderboard({ data }: Props) {
                   </span>
                 </td>
                 <td className="px-2 py-2.5 text-center text-pitch">
-                  {totals.totalPoints}
+                  {totals.matchesScored}
                 </td>
                 <td className="px-2 py-2.5 text-center text-pitch">
                   {totals.picksCorrect}
