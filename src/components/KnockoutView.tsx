@@ -53,8 +53,8 @@ export default function KnockoutView({
               <h2 className="text-base font-semibold">
                 {STAGE_LABEL[round.stage]}
               </h2>
-              <span className="text-xs text-slate-500 dark:text-zinc-400">
-                {round.matches.filter((m) => data.results[m.id]).length}/
+              <span className="text-xs text-[var(--text-muted)]">
+                {round.matches.filter((m) => m.home && m.away && data.results[m.id]).length}/
                 {round.matches.length} đã xong
               </span>
             </div>

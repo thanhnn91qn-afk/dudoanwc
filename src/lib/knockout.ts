@@ -212,9 +212,9 @@ export function resolveKnockout(
   for (const round of KNOCKOUT_ROUNDS) {
     for (const m of round.matches) {
       const r = results[m.id];
-      if (!r) continue;
-      if (r.winner === "home") winnerOf[m.id] = m.home ?? "";
-      else if (r.winner === "away") winnerOf[m.id] = m.away ?? "";
+      if (!r || !m.home || !m.away) continue;
+      if (r.winner === "home") winnerOf[m.id] = m.home;
+      else if (r.winner === "away") winnerOf[m.id] = m.away;
     }
   }
 
@@ -255,12 +255,12 @@ export function resolveKnockout(
     for (const round of resolvedRounds) {
       for (const m of round.matches) {
         const r = results[m.id];
-        if (r) {
+        if (r && m.home && m.away) {
           m.scoreHome = r.scoreHome;
           m.scoreAway = r.scoreAway;
           m.winner = r.winner;
-          if (r.winner === "home") winnerOf[m.id] = m.home ?? "";
-          else if (r.winner === "away") winnerOf[m.id] = m.away ?? "";
+          if (r.winner === "home") winnerOf[m.id] = m.home;
+          else if (r.winner === "away") winnerOf[m.id] = m.away;
         } else {
           m.scoreHome = null;
           m.scoreAway = null;

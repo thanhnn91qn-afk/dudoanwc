@@ -101,30 +101,34 @@ export default function MatchCard({
       })
     : "";
 
+  const locked = !homeKnown || !awayKnown;
+  const now = Date.now();
+  const kickedOff = kickoffDate ? kickoffDate.getTime() <= now : false;
+  // Knockout chưa có đủ 2 đội: không hiển thị kết quả (tránh trùng mã với vòng bảng).
+  const effectiveResult = locked && match.isKnockout ? undefined : result;
+  const finalized = !!effectiveResult;
+
   const handlePick = (pick: Pick) => {
     if (!homeKnown || !awayKnown || kickedOff || finalized) return;
     onPredict({ pick, predictedAt: Date.now() });
   };
 
-  const myPickCorrect = myPrediction && result && myPrediction.pick === result.winner;
-  const locked = !homeKnown || !awayKnown;
-  const now = Date.now();
-  const kickedOff = kickoffDate ? kickoffDate.getTime() <= now : false;
-  const finalized = !!result;
+  const myPickCorrect =
+    myPrediction && effectiveResult && myPrediction.pick === effectiveResult.winner;
 
   // Danh sách tên người chơi đã đoán đúng trận này (khi đã chốt kết quả).
   // predictions nằm trong từng Player.predictions (key theo matchId).
   const correctNames = useMemo(() => {
-    if (!finalized || !result) return [] as string[];
+    if (!finalized || !effectiveResult) return [] as string[];
     const names: string[] = [];
     for (const player of data.players) {
       const pred = player.predictions?.[match.id];
-      if (pred && pred.pick === result.winner) names.push(player.name);
+      if (pred && pred.pick === effectiveResult.winner) names.push(player.name);
     }
     return names;
-  }, [finalized, result, data.players, match.id]);
+  }, [finalized, effectiveResult, data.players, match.id]);
 
-  const cardStyle = result
+  const cardStyle = effectiveResult
     ? "result-correct"
     : locked
       ? "border-dashed border-[var(--border-medium)] bg-[var(--bg-soft)]/50"
@@ -175,11 +179,11 @@ export default function MatchCard({
         </div>
 
         <div className="flex flex-col items-center gap-1.5">
-          {result ? (
+          {effectiveResult ? (
             <div className="bg-pitch-soft text-pitch rounded-xl px-4 py-2 text-center font-mono text-2xl font-black tracking-tight">
-              {result.scoreHome}
+              {effectiveResult.scoreHome}
               <span className="mx-1 text-[var(--text-muted)]">—</span>
-              {result.scoreAway}
+              {effectiveResult.scoreAway}
             </div>
           ) : (
             <div className="text-lg font-bold text-[var(--text-muted)]">VS</div>
