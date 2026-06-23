@@ -8,6 +8,7 @@ import type {
   Pick,
 } from "@/lib/types";
 import { getTeamInfo } from "@/data/tournament";
+import { isGroupStageMatchId } from "@/lib/matchIds";
 import { tallyMatch } from "@/lib/scoring";
 import {
   IconCheck,
@@ -104,8 +105,11 @@ export default function MatchCard({
   const locked = !homeKnown || !awayKnown;
   const now = Date.now();
   const kickedOff = kickoffDate ? kickoffDate.getTime() <= now : false;
-  // Knockout chưa có đủ 2 đội: không hiển thị kết quả (tránh trùng mã với vòng bảng).
-  const effectiveResult = locked && match.isKnockout ? undefined : result;
+  // Knockout chưa có đủ 2 đội hoặc mã trùng vòng bảng: không hiển thị kết quả.
+  const effectiveResult =
+    match.isKnockout && (locked || isGroupStageMatchId(match.id))
+      ? undefined
+      : result;
   const finalized = !!effectiveResult;
 
   const handlePick = (pick: Pick) => {

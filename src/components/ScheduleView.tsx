@@ -10,6 +10,7 @@ import type {
   Player,
 } from "@/lib/types";
 import { resolveKnockout } from "@/lib/knockout";
+import { knockoutResultFor } from "@/lib/matchIds";
 import { tournament } from "@/data/tournament";
 import MatchCard from "./MatchCard";
 import { IconCalendar, IconClock } from "./Icons";
@@ -300,7 +301,11 @@ export default function ScheduleView({
                       }
                       data={data}
                       myPrediction={currentPlayer?.predictions[m.id]}
-                      result={data.results[m.id]}
+                      result={
+                        isKnockout
+                          ? knockoutResultFor(m.id, m.home, m.away, data.results)
+                          : data.results[m.id]
+                      }
                       isAdmin={isAdmin}
                       onPredict={(p) => onPredict(m.id, p)}
                       onConfirmResult={(r) => onConfirmResult(m.id, r)}

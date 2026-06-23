@@ -2,6 +2,7 @@
 
 import type { AppData, KnockoutMatch, MatchPrediction, MatchResult, Player } from "@/lib/types";
 import { resolveKnockout, groupStageProgress } from "@/lib/knockout";
+import { knockoutResultFor } from "@/lib/matchIds";
 import { tournament } from "@/data/tournament";
 import MatchCard from "./MatchCard";
 import { STAGE_LABEL } from "@/lib/types";
@@ -54,7 +55,7 @@ export default function KnockoutView({
                 {STAGE_LABEL[round.stage]}
               </h2>
               <span className="text-xs text-[var(--text-muted)]">
-                {round.matches.filter((m) => m.home && m.away && data.results[m.id]).length}/
+                {round.matches.filter((m) => knockoutResultFor(m.id, m.home, m.away, data.results)).length}/
                 {round.matches.length} đã xong
               </span>
             </div>
@@ -65,7 +66,7 @@ export default function KnockoutView({
                   match={{ ...m, isKnockout: true }}
                   data={data}
                   myPrediction={currentPlayer?.predictions[m.id]}
-                  result={data.results[m.id]}
+                  result={knockoutResultFor(m.id, m.home, m.away, data.results)}
                   isAdmin={isAdmin}
                   onPredict={(p) => onPredict(m.id, p)}
                   onConfirmResult={(r) => onConfirmResult(m.id, r)}

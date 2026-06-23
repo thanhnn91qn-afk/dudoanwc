@@ -69,7 +69,8 @@ function mk(
   };
 }
 
-// ID R32 dùng tiền tố R32- để không trùng mã vòng bảng K1–K6 (bảng K).
+// Quy ước mã knockout: R32-*, R16-*, QF-*, SF-*, FINAL-*.
+// KHÔNG dùng dạng [A-L][1-6] — trùng mã vòng bảng (vd F1, K1…).
 const r32: KnockoutMatch[] = [
   mk("R32-1", "R32", 0, "2A", "2C"),
   mk("R32-2", "R32", 1, "1B", "3A/C/D/E"),
@@ -90,30 +91,30 @@ const r32: KnockoutMatch[] = [
 ];
 
 const r16: KnockoutMatch[] = [
-  mk("R1", "R16", 16, "W R32-2", "W R32-1"),
-  mk("R2", "R16", 17, "W R32-4", "W R32-3"),
-  mk("R3", "R16", 18, "W R32-6", "W R32-5"),
-  mk("R4", "R16", 19, "W R32-8", "W R32-7"),
-  mk("R5", "R16", 20, "W R32-10", "W R32-9"),
-  mk("R6", "R16", 21, "W R32-12", "W R32-11"),
-  mk("R7", "R16", 22, "W R32-14", "W R32-13"),
-  mk("R8", "R16", 23, "W R32-16", "W R32-15"),
+  mk("R16-1", "R16", 16, "W R32-2", "W R32-1"),
+  mk("R16-2", "R16", 17, "W R32-4", "W R32-3"),
+  mk("R16-3", "R16", 18, "W R32-6", "W R32-5"),
+  mk("R16-4", "R16", 19, "W R32-8", "W R32-7"),
+  mk("R16-5", "R16", 20, "W R32-10", "W R32-9"),
+  mk("R16-6", "R16", 21, "W R32-12", "W R32-11"),
+  mk("R16-7", "R16", 22, "W R32-14", "W R32-13"),
+  mk("R16-8", "R16", 23, "W R32-16", "W R32-15"),
 ];
 
 const qf: KnockoutMatch[] = [
-  mk("Q1", "QF", 24, "W R2", "W R1"),
-  mk("Q2", "QF", 25, "W R4", "W R3"),
-  mk("Q3", "QF", 26, "W R6", "W R5"),
-  mk("Q4", "QF", 27, "W R8", "W R7"),
+  mk("QF-1", "QF", 24, "W R16-2", "W R16-1"),
+  mk("QF-2", "QF", 25, "W R16-4", "W R16-3"),
+  mk("QF-3", "QF", 26, "W R16-6", "W R16-5"),
+  mk("QF-4", "QF", 27, "W R16-8", "W R16-7"),
 ];
 
 const sf: KnockoutMatch[] = [
-  mk("S1", "SF", 28, "W Q2", "W Q1"),
-  mk("S2", "SF", 29, "W Q4", "W Q3"),
+  mk("SF-1", "SF", 28, "W QF-2", "W QF-1"),
+  mk("SF-2", "SF", 29, "W QF-4", "W QF-3"),
 ];
 
 const f: KnockoutMatch[] = [
-  mk("F1", "F", 30, "W S1", "W S2"),
+  mk("FINAL-1", "F", 30, "W SF-1", "W SF-2"),
 ];
 
 export const KNOCKOUT_ROUNDS: KnockoutRound[] = [

@@ -7,6 +7,7 @@ import type {
   MatchResult,
 } from "@/lib/types";
 import { KNOCKOUT_ROUNDS, THIRD_PLACE_GROUPS } from "@/data/knockout";
+import { isGroupStageMatchId } from "@/lib/matchIds";
 
 export interface ResolvedKnockout {
   rounds: KnockoutRound[];
@@ -211,6 +212,7 @@ export function resolveKnockout(
   // winnerOf có thể tới từ kết quả đã lưu (results) — nếu admin đã xác nhận.
   for (const round of KNOCKOUT_ROUNDS) {
     for (const m of round.matches) {
+      if (isGroupStageMatchId(m.id)) continue;
       const r = results[m.id];
       if (!r || !m.home || !m.away) continue;
       if (r.winner === "home") winnerOf[m.id] = m.home;
@@ -254,6 +256,12 @@ export function resolveKnockout(
     // Bước 2: SAU KHI đã có home/away, gán winnerOf dựa trên kết quả
     for (const round of resolvedRounds) {
       for (const m of round.matches) {
+        if (isGroupStageMatchId(m.id)) {
+          m.scoreHome = null;
+          m.scoreAway = null;
+          m.winner = null;
+          continue;
+        }
         const r = results[m.id];
         if (r && m.home && m.away) {
           m.scoreHome = r.scoreHome;

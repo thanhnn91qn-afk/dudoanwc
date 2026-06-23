@@ -75,7 +75,7 @@ export interface KnockoutMatch {
   date: string; // ISO với timezone hoặc date YYYY-MM-DD
   home?: string | null; // tên đội (sẽ được resolve sau khi vòng trước xong) hoặc seed
   away?: string | null;
-  homeSeed?: string; // mô tả nguồn (vd "1A", "2B", "W R32-A1")
+  homeSeed?: string; // mô tả nguồn (vd "1A", "2B", "W R32-1")
   awaySeed?: string;
   venue: string;
   city: string;
