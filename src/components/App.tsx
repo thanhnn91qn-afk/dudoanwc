@@ -36,6 +36,7 @@ export default function App() {
   const [tab, setTab] = useState<Tab>("schedule");
   const [activeGroup, setActiveGroup] = useState<string>("A");
   const [showThemeSettings, setShowThemeSettings] = useState(false);
+  const [syncingResults, setSyncingResults] = useState(false);
   // Mount theme tokens hook (manages localStorage + CSS variable application)
   useThemeTokens();
 
@@ -73,6 +74,50 @@ export default function App() {
       console.error("[supabase] refresh failed", e);
     }
   }, []);
+
+  const handleSyncResults = useCallback(async () => {
+    if (!confirm("Lấy kết quả mới nhất từ openfootball (miễn phí) và cập nhật vào hệ thống?")) {
+      return;
+    }
+    setSyncingResults(true);
+    try {
+      const res = await fetch("/api/sync-results", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ actorName: currentPlayer?.name ?? "admin" }),
+      });
+      const payload = (await res.json()) as {
+        error?: string;
+        applied?: { matchId: string; home: string; away: string; externalScore: string }[];
+        failed?: { matchId: string; error: string }[];
+        unchanged?: string[];
+        externalFinishedCount?: number;
+        sourceUrl?: string;
+      };
+      if (!res.ok) throw new Error(payload.error ?? `HTTP ${res.status}`);
+
+      await refreshData();
+
+      const applied = payload.applied ?? [];
+      const failed = payload.failed ?? [];
+      const unchanged = payload.unchanged?.length ?? 0;
+      const lines = [
+        `Nguồn: openfootball (${payload.externalFinishedCount ?? "?"} trận đã có tỉ số)`,
+        applied.length
+          ? `Đã cập nhật ${applied.length} trận:\n${applied.map((a) => `• ${a.matchId}: ${a.home} vs ${a.away} → ${a.externalScore}`).join("\n")}`
+          : "Không có trận mới cần cập nhật.",
+        unchanged ? `${unchanged} trận đã khớp, bỏ qua.` : "",
+        failed.length
+          ? `Lỗi ${failed.length} trận:\n${failed.map((f) => `• ${f.matchId}: ${f.error}`).join("\n")}`
+          : "",
+      ].filter(Boolean);
+      alert(lines.join("\n\n"));
+    } catch (e) {
+      alert(`Không cập nhật được: ${(e as Error).message ?? "lỗi không rõ"}`);
+    } finally {
+      setSyncingResults(false);
+    }
+  }, [currentPlayer, refreshData]);
 
   const handleLoginOrCreate = useCallback(
     async (name: string) => {
@@ -300,13 +345,23 @@ export default function App() {
                 <strong>xác nhận kết quả thắng thua</strong> cho từng trận. Mọi
                 người dùng đều có thể bật chế độ này để tự nhập kết quả thật.
               </div>
-              <button
-                onClick={() => setShowThemeSettings(true)}
-                title="Chỉnh màu giao diện (preset hoặc tuỳ chỉnh)"
-                className="shrink-0 rounded-lg bg-amber-400 px-3 py-2 text-sm font-semibold text-amber-950 hover:bg-amber-300"
-              >
-                Tuỳ chỉnh màu
-              </button>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => void handleSyncResults()}
+                  disabled={syncingResults}
+                  title="Lấy kết quả từ openfootball (worldcup.json) — miễn phí, không cần API key"
+                  className="shrink-0 rounded-lg bg-emerald-500 px-3 py-2 text-sm font-semibold text-white hover:bg-emerald-400 disabled:opacity-60"
+                >
+                  {syncingResults ? "Đang cập nhật…" : "Cập nhật kết quả mới nhất"}
+                </button>
+                <button
+                  onClick={() => setShowThemeSettings(true)}
+                  title="Chỉnh màu giao diện (preset hoặc tuỳ chỉnh)"
+                  className="shrink-0 rounded-lg bg-amber-400 px-3 py-2 text-sm font-semibold text-amber-950 hover:bg-amber-300"
+                >
+                  Tuỳ chỉnh màu
+                </button>
+              </div>
             </div>
           )}
           </div>

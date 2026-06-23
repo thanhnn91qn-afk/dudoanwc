@@ -243,6 +243,7 @@ Sau đó mở Supabase Dashboard → copy URL + anon key → dán vào Vercel En
 3. Tab **Vòng bảng**: chọn bảng A → L, dự đoán từng trận bằng 3 nút (nhà / hoà / khách).
 4. Tab **Vòng trong**: tự xuất hiện khi vòng bảng có kết quả.
 5. Khi trận thật đã diễn ra, bấm **Chế độ Admin** ở header → nhập tỉ số → bấm kết quả.
+   - Hoặc bấm **Cập nhật kết quả mới nhất** để lấy tỉ số tự động từ [openfootball/worldcup.json](https://github.com/openfootball/worldcup.json) (miễn phí, không cần API key). Hệ thống ghép theo tên 2 đội, chỉ cập nhật trận mới/chưa khớp.
 6. Tab **Bảng xếp hạng**: ai đoán đúng nhiều nhất sẽ lên top 🥇.
 7. Tab **Lịch sử** (chỉ Admin): xem lại toàn bộ thay đổi.
 

@@ -114,6 +114,7 @@ const ACTION_LABELS: Record<string, string> = {
   "result.set": "✅ Chốt kết quả",
   "result.update": "✏️ Sửa kết quả",
   "result.delete": "🗑️ Huỷ kết quả",
+  "result.sync": "🔄 Đồng bộ kết quả từ API",
   "system.reset": "♻️ Xoá toàn bộ dữ liệu",
   "player.delete": "🗑️ Xoá người chơi",
 };
