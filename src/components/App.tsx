@@ -76,7 +76,11 @@ export default function App() {
   }, []);
 
   const handleSyncResults = useCallback(async () => {
-    if (!confirm("Lấy kết quả mới nhất từ openfootball (miễn phí) và cập nhật vào hệ thống?")) {
+    if (
+      !confirm(
+        "Đối chiếu lại TOÀN BỘ kết quả từ đầu giải với openfootball?\n\n• Sửa trận nhập sai nếu API khác\n• Xoá trận chốt sớm / chưa có tỉ số trên API\n• Thêm trận mới đã kết thúc",
+      )
+    ) {
       return;
     }
     setSyncingResults(true);
@@ -89,24 +93,29 @@ export default function App() {
       const payload = (await res.json()) as {
         error?: string;
         applied?: { matchId: string; home: string; away: string; externalScore: string }[];
+        removed?: { matchId: string; label: string; reason: string }[];
         failed?: { matchId: string; error: string }[];
         unchanged?: string[];
+        reconciledCount?: number;
         externalFinishedCount?: number;
-        sourceUrl?: string;
       };
       if (!res.ok) throw new Error(payload.error ?? `HTTP ${res.status}`);
 
       await refreshData();
 
       const applied = payload.applied ?? [];
+      const removed = payload.removed ?? [];
       const failed = payload.failed ?? [];
       const unchanged = payload.unchanged?.length ?? 0;
       const lines = [
-        `Nguồn: openfootball (${payload.externalFinishedCount ?? "?"} trận đã có tỉ số)`,
+        `Đối chiếu ${payload.reconciledCount ?? "?"} kết quả trong DB với ${payload.externalFinishedCount ?? "?"} trận có tỉ số trên API.`,
         applied.length
-          ? `Đã cập nhật ${applied.length} trận:\n${applied.map((a) => `• ${a.matchId}: ${a.home} vs ${a.away} → ${a.externalScore}`).join("\n")}`
-          : "Không có trận mới cần cập nhật.",
-        unchanged ? `${unchanged} trận đã khớp, bỏ qua.` : "",
+          ? `Đã sửa/cập nhật ${applied.length} trận:\n${applied.map((a) => `• ${a.matchId}: ${a.home} vs ${a.away} → ${a.externalScore}`).join("\n")}`
+          : "Không có trận cần sửa/cập nhật.",
+        removed.length
+          ? `Đã xoá ${removed.length} trận nhập nhầm:\n${removed.map((r) => `• ${r.matchId}: ${r.label} (${r.reason})`).join("\n")}`
+          : "",
+        unchanged ? `${unchanged} trận đã khớp API, giữ nguyên.` : "",
         failed.length
           ? `Lỗi ${failed.length} trận:\n${failed.map((f) => `• ${f.matchId}: ${f.error}`).join("\n")}`
           : "",
@@ -349,7 +358,7 @@ export default function App() {
                 <button
                   onClick={() => void handleSyncResults()}
                   disabled={syncingResults}
-                  title="Lấy kết quả từ openfootball (worldcup.json) — miễn phí, không cần API key"
+                  title="Đối chiếu lại toàn bộ kết quả trong DB với openfootball — sửa sai, xoá chốt sớm, thêm trận mới"
                   className="shrink-0 rounded-lg bg-emerald-500 px-3 py-2 text-sm font-semibold text-white hover:bg-emerald-400 disabled:opacity-60"
                 >
                   {syncingResults ? "Đang cập nhật…" : "Cập nhật kết quả mới nhất"}

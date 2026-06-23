@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { setResultRemote } from "@/lib/dataSource";
 import {
   buildSyncPlan,
-  collectLocalMatches,
   fetchExternalPayloadWithFallback,
 } from "@/lib/externalResults";
 import { supabase } from "@/lib/supabase";
@@ -29,8 +28,7 @@ async function loadCurrentResults(): Promise<Record<string, MatchResult>> {
 async function buildPlan() {
   const { url, matches } = await fetchExternalPayloadWithFallback();
   const currentResults = await loadCurrentResults();
-  const localMatches = collectLocalMatches();
-  return buildSyncPlan(matches, localMatches, currentResults, url);
+  return buildSyncPlan(matches, currentResults, url);
 }
 
 /** GET: xem trước các trận sẽ được cập nhật (không ghi DB). */
@@ -71,6 +69,7 @@ export async function POST(req: Request) {
   try {
     const plan = await buildPlan();
     const applied: typeof plan.updates = [];
+    const removed: typeof plan.removals = [];
     const failed: { matchId: string; error: string }[] = [];
 
     for (const item of plan.updates) {
@@ -90,9 +89,22 @@ export async function POST(req: Request) {
       }
     }
 
+    for (const item of plan.removals) {
+      try {
+        await setResultRemote(actorName, item.matchId, null, item.previousResult);
+        removed.push(item);
+      } catch (e) {
+        failed.push({
+          matchId: item.matchId,
+          error: (e as Error).message ?? "lỗi không rõ",
+        });
+      }
+    }
+
     return NextResponse.json({
       ...plan,
       applied,
+      removed,
       failed,
     });
   } catch (e) {

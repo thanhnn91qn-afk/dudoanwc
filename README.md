@@ -10,6 +10,7 @@ Web dự đoán thắng/thua World Cup 2026 để chơi cùng bạn bè. Mỗi n
 - 🔒 **Tự khoá vote khi trận đã bắt đầu** theo giờ VN (đọc từ `kickoffVN` trong JSON).
 - 🏆 **Vòng trong (Knockout)**: tự động sắp xếp đội vào vòng 1/16, tứ kết, bán kết, chung kết dựa trên kết quả vòng bảng.
 - 🛠 **Chế độ Admin**: bất kỳ ai cũng có thể bật để tự xác nhận kết quả thật.
+- 🔄 **Đồng bộ kết quả từ API** (Admin): nút *Cập nhật kết quả mới nhất* lấy tỉ số từ openfootball — tránh nhập nhầm tay.
 - 📊 **Bảng xếp hạng**: đúng đội thắng +1 điểm, kèm số lượt **Đúng / Sai / Bỏ**.
 - 📜 **Lịch sử (audit log)**: tab chỉ hiện ở chế độ Admin để tra lại mọi thay đổi.
 - ☀️🌙 **Light / Dark mode** với bảng màu charcoal navy dịu mắt.
